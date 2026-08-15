@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product Range — TERRAHIDE GLOBAL</title>
+<meta name="description" content="Explore Terrahide Global's leather range: upholstery, craft & belting, leathergoods, and raw hides." />
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { hide:{DEFAULT:'#8A5A34',dark:'#5E3B22',light:'#C89B6C'}, ink:{DEFAULT:'#221A14',soft:'#4A3B30'}, cream:'#F3EBDF', sand:'#FAF6F0', line:'#E4D7C6' }, fontFamily:{ display:['Fraunces','serif'], sans:['Inter','sans-serif'] } } } }
+</script>
+<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body class="bg-sand text-ink antialiased">
+
+<div id="page-loader"><div class="flex flex-col items-center gap-4"><img src="assets/img/logo-mark.svg" class="w-14 h-14 floaty" alt="" /><span class="font-display italic text-hide tracking-wide">Terrahide Global</span></div></div>
+<div id="scroll-progress"></div>
+<div id="cursor-glow"></div>
+
+<header id="site-nav" class="nav-shell fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/img/logo-mark.svg" class="w-10 h-10 transition-transform duration-500 group-hover:rotate-12" alt="Terrahide Global" />
+        <span class="font-display text-xl tracking-tight leading-none">TERRAHIDE <span class="text-hide">GLOBAL</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-[12.5px] font-medium uppercase tracking-wide text-ink-soft">
+        <a href="index.html" class="nav-link py-2">Home</a>
+        <a href="products.html" class="nav-link active py-2">Products</a>
+        <a href="tanneries.html" class="nav-link py-2">Tanneries</a>
+        <a href="projects.html" class="nav-link py-2">Projects</a>
+        <a href="about.html" class="nav-link py-2">About</a>
+
+        <div class="group relative">
+          <button class="nav-link py-2 flex items-center gap-1">More
+            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="mega-panel absolute right-0 top-full mt-3 w-56 bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-line p-2">
+            <a href="swatches.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Swatch Library</a>
+            <a href="environment.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Environment</a>
+            <a href="showrooms.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Showrooms</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="text-[12.5px] font-medium uppercase tracking-wide text-ink-soft hover:text-hide transition-colors">Contact</a>
+        <a href="contact.html" class="btn-hide bg-ink text-white text-[12.5px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="fixed inset-0 z-[70] bg-ink text-white lg:hidden">
+  <div class="flex justify-between items-center px-6 h-20">
+    <span class="font-display text-lg">Menu</span>
+    <button id="menu-close" class="w-10 h-10 flex items-center justify-center">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="flex flex-col gap-1 px-6 mt-6 text-2xl font-display">
+    <a href="index.html" class="py-3 border-b border-white/10">Home</a>
+    <a href="products.html" class="py-3 border-b border-white/10">Products</a>
+    <a href="tanneries.html" class="py-3 border-b border-white/10">Tanneries</a>
+    <a href="swatches.html" class="py-3 border-b border-white/10">Swatches</a>
+    <a href="projects.html" class="py-3 border-b border-white/10">Projects</a>
+    <a href="environment.html" class="py-3 border-b border-white/10">Environment</a>
+    <a href="about.html" class="py-3 border-b border-white/10">About Us</a>
+    <a href="showrooms.html" class="py-3 border-b border-white/10">Showrooms</a>
+    <a href="contact.html" class="py-3">Contact</a>
+  </nav>
+  <a href="contact.html" class="mx-6 mt-8 block text-center bg-hide text-white rounded-full py-3.5 font-sans text-sm uppercase tracking-wide font-semibold">Request Sample</a>
+</div>
+
+<!-- Page hero -->
+<section class="pt-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+    <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">Product Range</span>
+    <h1 class="font-display text-5xl lg:text-6xl mt-4 reveal" style="transition-delay:.08s">Leather for every application</h1>
+    <p class="text-ink-soft max-w-xl mt-5 reveal" style="transition-delay:.16s">From full-grain upholstery to vegetable-tanned belting — sourced direct from our partner tanneries and held in stock across our regional warehouses.</p>
+  </div>
+</section>
+
+<!-- Filter bar -->
+<section class="sticky top-20 z-30 bg-sand/95 backdrop-blur border-y border-line">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+    <button data-filter="all" class="bg-ink text-white px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors">All Products</button>
+    <button data-filter="upholstery" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Upholstery</button>
+    <button data-filter="craft" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Craft &amp; Belting</button>
+    <button data-filter="goods" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Leathergoods</button>
+    <button data-filter="hides" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Hides</button>
+  </div>
+</section>
+
+<!-- Product grid -->
+<section id="upholstery" class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+    <article data-category="upholstery" class="reveal group">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Full-grain upholstery leather" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Indoor</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Full-Grain Aniline</h3>
+      <p class="text-sm text-ink-soft mt-1">Soft-handle upholstery hide, 20 colourways</p>
+    </article>
+
+    <article data-category="upholstery" class="reveal group" style="transition-delay:.05s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1579656381229-15bdb188da49?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather armchair with weather-resistant finish" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Outdoor</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Marine Grade Nautic</h3>
+      <p class="text-sm text-ink-soft mt-1">UV &amp; salt-resistant outdoor performance leather</p>
+    </article>
+
+    <article data-category="upholstery" class="reveal group" style="transition-delay:.1s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1563986642669-49162177a0bc?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather automotive seat trim" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Automotive</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Elementa Drive</h3>
+      <p class="text-sm text-ink-soft mt-1">High-abrasion automotive &amp; marine trim leather</p>
+    </article>
+
+    <article data-category="craft" class="reveal group" style="transition-delay:.15s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1628483211662-9bcc692c46dc?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Leather tooling wallet with craft tools" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Craft</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Veg-Tan Tooling</h3>
+      <p class="text-sm text-ink-soft mt-1">Vegetable-tanned leather for craft &amp; tooling work</p>
+    </article>
+
+    <article data-category="craft" class="reveal group" style="transition-delay:.2s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1611937685025-8d1df67a80b6?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather harness belt" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Belting</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Harness Belting</h3>
+      <p class="text-sm text-ink-soft mt-1">Heavy oil-tanned strap &amp; belting leather</p>
+    </article>
+
+    <article data-category="goods" class="reveal group" style="transition-delay:.25s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1571273260782-bab4699dde20?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather crossbody satchel" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Goods</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Satchel Grade</h3>
+      <p class="text-sm text-ink-soft mt-1">Full-grain hide for bags &amp; accessories manufacture</p>
+    </article>
+
+    <article data-category="goods" class="reveal group" style="transition-delay:.3s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1705493655920-20c572928501?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather strap detail" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Goods</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Strap &amp; Trim Stock</h3>
+      <p class="text-sm text-ink-soft mt-1">Pre-cut strap leather for accessory production</p>
+    </article>
+
+    <article data-category="hides" class="reveal group" style="transition-delay:.35s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1747253523365-855fa9288d83?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Rolled sheets of full leather hides" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hides</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Full Hide — Untrimmed</h3>
+      <p class="text-sm text-ink-soft mt-1">Raw full hides direct from partner tanneries</p>
+    </article>
+
+    <article data-category="hides" class="reveal group" style="transition-delay:.4s">
+      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
+        <img src="https://images.unsplash.com/photo-1719471497337-dfd794f3176b?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Rolled nubuck-toned leather hide" />
+        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hides</span>
+        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+      </div>
+      <h3 class="font-display text-xl">Nubuck &amp; Suede</h3>
+      <p class="text-sm text-ink-soft mt-1">Sanded nubuck &amp; split suede hides</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- Craft banner -->
+<section class="bg-cream py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="relative reveal-left">
+      <img src="https://images.unsplash.com/photo-1755924648847-f733ed2818c8?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Leather apron hanging in a craftsman's workshop" />
+    </div>
+    <div class="reveal-right">
+      <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold">Custom Sourcing</span>
+      <h2 class="font-display text-4xl mt-4 leading-tight">Can't find the exact grade or colour?</h2>
+      <p class="text-ink-soft mt-5 leading-relaxed">Our tannery network spans four continents. Tell us your application, volume, and finish requirements — we'll source and sample a match within days, not months.</p>
+      <a href="contact.html" class="magnetic btn-hide inline-flex items-center gap-2 bg-ink text-white mt-8 text-sm font-semibold uppercase tracking-wide px-6 py-3.5 rounded-full">
+        Request a Custom Quote
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-white/70 pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-5 gap-10">
+    <div class="md:col-span-2">
+      <a href="index.html" class="flex items-center gap-3 mb-4">
+        <img src="assets/img/logo-mark.svg" class="w-9 h-9" alt="" />
+        <span class="font-display text-lg text-white">TERRAHIDE GLOBAL</span>
+      </a>
+      <p class="text-sm leading-relaxed max-w-xs">Connecting world-class tanneries with global markets — sourcing, quality, and logistics for premium leather.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">in</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">ig</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">fb</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Range</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="products.html#upholstery" class="hover:text-white transition-colors">Upholstery</a></li>
+        <li><a href="products.html#craft" class="hover:text-white transition-colors">Craft &amp; Belting</a></li>
+        <li><a href="products.html#goods" class="hover:text-white transition-colors">Leathergoods</a></li>
+        <li><a href="products.html#hides" class="hover:text-white transition-colors">Hides</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+                <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
+        <li><a href="swatches.html" class="hover:text-white transition-colors">Swatch Library</a></li>
+<li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="environment.html" class="hover:text-white transition-colors">Environment</a></li>
+        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+        <li><a href="showrooms.html" class="hover:text-white transition-colors">Showrooms</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Get Help</h4>
+      <ul class="space-y-2 text-sm">
+        <li>+61 2 9355 3600</li>
+        <li>info@terrahideglobal.com</li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© 2026 Terrahide Global Pty Ltd. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-white transition-colors">Terms &amp; Conditions</a>
+      <a href="#" class="hover:text-white transition-colors">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-xl hover:bg-hide transition-colors">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

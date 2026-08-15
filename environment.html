@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Environment & Sustainability — TERRAHIDE GLOBAL</title>
+<meta name="description" content="How Terrahide Global approaches sustainability, responsible tanning, and environmental stewardship across our supply chain." />
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { hide:{DEFAULT:'#8A5A34',dark:'#5E3B22',light:'#C89B6C'}, ink:{DEFAULT:'#221A14',soft:'#4A3B30'}, cream:'#F3EBDF', sand:'#FAF6F0', line:'#E4D7C6' }, fontFamily:{ display:['Fraunces','serif'], sans:['Inter','sans-serif'] } } } }
+</script>
+<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body class="bg-sand text-ink antialiased">
+
+<div id="page-loader"><div class="flex flex-col items-center gap-4"><img src="assets/img/logo-mark.svg" class="w-14 h-14 floaty" alt="" /><span class="font-display italic text-hide tracking-wide">Terrahide Global</span></div></div>
+<div id="scroll-progress"></div>
+<div id="cursor-glow"></div>
+
+<header id="site-nav" class="nav-shell fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/img/logo-mark.svg" class="w-10 h-10 transition-transform duration-500 group-hover:rotate-12" alt="Terrahide Global" />
+        <span class="font-display text-xl tracking-tight leading-none">TERRAHIDE <span class="text-hide">GLOBAL</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-[12.5px] font-medium uppercase tracking-wide text-ink-soft">
+        <a href="index.html" class="nav-link py-2">Home</a>
+        <a href="products.html" class="nav-link py-2">Products</a>
+        <a href="tanneries.html" class="nav-link py-2">Tanneries</a>
+        <a href="projects.html" class="nav-link py-2">Projects</a>
+        <a href="about.html" class="nav-link py-2">About</a>
+
+        <div class="group relative">
+          <button class="nav-link active py-2 flex items-center gap-1">More
+            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="mega-panel absolute right-0 top-full mt-3 w-56 bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-line p-2">
+            <a href="swatches.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Swatch Library</a>
+            <a href="environment.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Environment</a>
+            <a href="showrooms.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Showrooms</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="text-[12.5px] font-medium uppercase tracking-wide text-ink-soft hover:text-hide transition-colors">Contact</a>
+        <a href="contact.html" class="btn-hide bg-ink text-white text-[12.5px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="fixed inset-0 z-[70] bg-ink text-white lg:hidden">
+  <div class="flex justify-between items-center px-6 h-20">
+    <span class="font-display text-lg">Menu</span>
+    <button id="menu-close" class="w-10 h-10 flex items-center justify-center">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="flex flex-col gap-1 px-6 mt-6 text-2xl font-display">
+    <a href="index.html" class="py-3 border-b border-white/10">Home</a>
+    <a href="products.html" class="py-3 border-b border-white/10">Products</a>
+    <a href="tanneries.html" class="py-3 border-b border-white/10">Tanneries</a>
+    <a href="swatches.html" class="py-3 border-b border-white/10">Swatches</a>
+    <a href="projects.html" class="py-3 border-b border-white/10">Projects</a>
+    <a href="environment.html" class="py-3 border-b border-white/10">Environment</a>
+    <a href="about.html" class="py-3 border-b border-white/10">About Us</a>
+    <a href="showrooms.html" class="py-3 border-b border-white/10">Showrooms</a>
+    <a href="contact.html" class="py-3">Contact</a>
+  </nav>
+  <a href="contact.html" class="mx-6 mt-8 block text-center bg-hide text-white rounded-full py-3.5 font-sans text-sm uppercase tracking-wide font-semibold">Request Sample</a>
+</div>
+
+<!-- Hero -->
+<section class="pt-20 relative overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1767636924116-25561d65fa01?q=80&w=1800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover kenburns" alt="Worker at a traditional leather tannery dye vats" />
+  <div class="absolute inset-0 bg-ink/70"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-32 text-center">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold reveal">A Better Planet</span>
+    <h1 class="font-display text-white text-5xl lg:text-6xl mt-5 reveal" style="transition-delay:.08s">Environment &amp; Sustainability</h1>
+    <p class="text-white/75 max-w-xl mx-auto mt-6 reveal" style="transition-delay:.16s">Leather is a natural by-product — our responsibility is to source it in a way that respects the planet and the next generation.</p>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal-stagger">
+    <div class="text-center border border-line rounded-2xl py-10 px-4 bg-white">
+      <p class="font-display text-5xl text-hide-dark"><span data-counter="73" data-suffix="M+">0</span></p>
+      <p class="text-xs text-ink-soft uppercase tracking-wide mt-2">Tonnes diverted from landfill / yr</p>
+    </div>
+    <div class="text-center border border-line rounded-2xl py-10 px-4 bg-white">
+      <p class="font-display text-5xl text-hide-dark"><span data-counter="18" data-suffix="">0</span></p>
+      <p class="text-xs text-ink-soft uppercase tracking-wide mt-2">Certified partner tanneries</p>
+    </div>
+    <div class="text-center border border-line rounded-2xl py-10 px-4 bg-white">
+      <p class="font-display text-5xl text-hide-dark"><span data-counter="100" data-suffix="%">0</span></p>
+      <p class="text-xs text-ink-soft uppercase tracking-wide mt-2">Traceable hide origin</p>
+    </div>
+    <div class="text-center border border-line rounded-2xl py-10 px-4 bg-white">
+      <p class="font-display text-5xl text-hide-dark"><span data-counter="70" data-suffix="+">0</span></p>
+      <p class="text-xs text-ink-soft uppercase tracking-wide mt-2">Years combined industry expertise</p>
+    </div>
+  </div>
+</section>
+
+<!-- Content blocks -->
+<section class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+  <div class="grid lg:grid-cols-2 gap-14 items-center mb-24">
+    <div class="reveal-left">
+      <img src="https://images.unsplash.com/photo-1747253523365-855fa9288d83?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Rolled sheets of leather by-product from the meat industry" />
+    </div>
+    <div class="reveal-right">
+      <h2 class="font-display text-3xl lg:text-4xl leading-tight">A natural by-product, not a primary driver</h2>
+      <p class="text-ink-soft mt-5 leading-relaxed">Leather is a by-product of the meat and dairy industry. Without tanning, these hides would otherwise be sent to landfill. By transforming them into a durable, biodegradable material, the leather industry reduces waste rather than creating new environmental demand.</p>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-14 items-center mb-24">
+    <div class="reveal-left order-2 lg:order-1">
+      <h2 class="font-display text-3xl lg:text-4xl leading-tight">Water stewardship &amp; responsible tanning</h2>
+      <p class="text-ink-soft mt-5 leading-relaxed">We only partner with tanneries that meet independently audited water treatment and chemical management standards, including Leather Working Group (LWG) certified facilities where available.</p>
+    </div>
+    <div class="reveal-right order-1 lg:order-2">
+      <img src="https://images.unsplash.com/photo-1768213470228-995720632f58?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Leather dyeing vats at a responsibly managed tannery" />
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal-left">
+      <img src="https://images.unsplash.com/photo-1745311924749-7e0c89a20ce6?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Durable leather armchair built to outlast synthetic alternatives" />
+    </div>
+    <div class="reveal-right">
+      <h2 class="font-display text-3xl lg:text-4xl leading-tight">Built to outlast synthetic alternatives</h2>
+      <p class="text-ink-soft mt-5 leading-relaxed">Full-grain leather naturally biodegrades and, cared for correctly, lasts decades longer than PU or vinyl alternatives — reducing the total replacement cycle and long-term landfill impact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Commitments -->
+<section class="bg-cream py-24 mt-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <h2 class="font-display text-4xl mb-12 reveal">Our commitments</h2>
+    <div class="grid md:grid-cols-3 gap-7 reveal-stagger">
+      <div class="bg-white rounded-2xl p-8 border border-line">
+        <span class="w-12 h-12 rounded-full bg-hide/10 flex items-center justify-center text-hide text-xl mb-5">✓</span>
+        <h3 class="font-display text-xl mb-2">Verified Sourcing</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Every hide can be traced to a certified tannery partner with documented origin.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-line">
+        <span class="w-12 h-12 rounded-full bg-hide/10 flex items-center justify-center text-hide text-xl mb-5">✓</span>
+        <h3 class="font-display text-xl mb-2">Chrome-Free Options</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">A growing range of vegetable and chrome-free tanned leathers across our catalogue.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-line">
+        <span class="w-12 h-12 rounded-full bg-hide/10 flex items-center justify-center text-hide text-xl mb-5">✓</span>
+        <h3 class="font-display text-xl mb-2">Reduced Freight Footprint</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Regional warehousing consolidates shipping and cuts unnecessary transit emissions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Accordion -->
+<section class="max-w-4xl mx-auto px-6 lg:px-10 py-24">
+  <h2 class="font-display text-4xl mb-10 text-center reveal">Common questions</h2>
+  <div class="space-y-3 reveal">
+    <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+      <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+        <span class="font-semibold">Is leather really more sustainable than synthetic alternatives?</span>
+        <span class="acc-icon text-2xl text-hide">+</span>
+      </button>
+      <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">Yes — as a natural, biodegradable by-product, leather avoids the petroleum inputs and microplastic shedding associated with PU and vinyl, and typically lasts significantly longer in use.</p></div>
+    </div>
+    <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+      <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+        <span class="font-semibold">How do you verify your tannery partners?</span>
+        <span class="acc-icon text-2xl text-hide">+</span>
+      </button>
+      <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">We require independent certification (including LWG audits where applicable) covering water treatment, chemical handling, and labour standards before onboarding any tannery partner.</p></div>
+    </div>
+    <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+      <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+        <span class="font-semibold">Do you offer chrome-free or vegetable-tanned leather?</span>
+        <span class="acc-icon text-2xl text-hide">+</span>
+      </button>
+      <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">Yes, our Craft &amp; Belting range is predominantly vegetable-tanned, and we're expanding chrome-free options across upholstery grades — ask our team for current availability.</p></div>
+    </div>
+    <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+      <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+        <span class="font-semibold">Can I request traceability documentation for a hide?</span>
+        <span class="acc-icon text-2xl text-hide">+</span>
+      </button>
+      <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">Absolutely — contact our team with a batch or order number and we'll provide origin and certification documentation.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-white/70 pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-5 gap-10">
+    <div class="md:col-span-2">
+      <a href="index.html" class="flex items-center gap-3 mb-4">
+        <img src="assets/img/logo-mark.svg" class="w-9 h-9" alt="" />
+        <span class="font-display text-lg text-white">TERRAHIDE GLOBAL</span>
+      </a>
+      <p class="text-sm leading-relaxed max-w-xs">Connecting world-class tanneries with global markets — sourcing, quality, and logistics for premium leather.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">in</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">ig</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">fb</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Range</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="products.html#upholstery" class="hover:text-white transition-colors">Upholstery</a></li>
+        <li><a href="products.html#craft" class="hover:text-white transition-colors">Craft &amp; Belting</a></li>
+        <li><a href="products.html#goods" class="hover:text-white transition-colors">Leathergoods</a></li>
+        <li><a href="products.html#hides" class="hover:text-white transition-colors">Hides</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+                <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
+        <li><a href="swatches.html" class="hover:text-white transition-colors">Swatch Library</a></li>
+<li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="environment.html" class="hover:text-white transition-colors">Environment</a></li>
+        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+        <li><a href="showrooms.html" class="hover:text-white transition-colors">Showrooms</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Get Help</h4>
+      <ul class="space-y-2 text-sm">
+        <li>+61 2 9355 3600</li>
+        <li>info@terrahideglobal.com</li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© 2026 Terrahide Global Pty Ltd. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-white transition-colors">Terms &amp; Conditions</a>
+      <a href="#" class="hover:text-white transition-colors">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-xl hover:bg-hide transition-colors">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

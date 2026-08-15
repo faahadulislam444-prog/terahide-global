@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us — TERRAHIDE GLOBAL</title>
+<meta name="description" content="Get in touch with Terrahide Global for samples, bulk pricing, and tannery partnership enquiries." />
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { hide:{DEFAULT:'#8A5A34',dark:'#5E3B22',light:'#C89B6C'}, ink:{DEFAULT:'#221A14',soft:'#4A3B30'}, cream:'#F3EBDF', sand:'#FAF6F0', line:'#E4D7C6' }, fontFamily:{ display:['Fraunces','serif'], sans:['Inter','sans-serif'] } } } }
+</script>
+<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body class="bg-sand text-ink antialiased">
+
+<div id="page-loader"><div class="flex flex-col items-center gap-4"><img src="assets/img/logo-mark.svg" class="w-14 h-14 floaty" alt="" /><span class="font-display italic text-hide tracking-wide">Terrahide Global</span></div></div>
+<div id="scroll-progress"></div>
+<div id="cursor-glow"></div>
+
+<header id="site-nav" class="nav-shell fixed top-0 inset-x-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="assets/img/logo-mark.svg" class="w-10 h-10 transition-transform duration-500 group-hover:rotate-12" alt="Terrahide Global" />
+        <span class="font-display text-xl tracking-tight leading-none">TERRAHIDE <span class="text-hide">GLOBAL</span></span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-[12.5px] font-medium uppercase tracking-wide text-ink-soft">
+        <a href="index.html" class="nav-link py-2">Home</a>
+        <a href="products.html" class="nav-link py-2">Products</a>
+        <a href="tanneries.html" class="nav-link py-2">Tanneries</a>
+        <a href="projects.html" class="nav-link py-2">Projects</a>
+        <a href="about.html" class="nav-link py-2">About</a>
+
+        <div class="group relative">
+          <button class="nav-link py-2 flex items-center gap-1">More
+            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="mega-panel absolute right-0 top-full mt-3 w-56 bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-line p-2">
+            <a href="swatches.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Swatch Library</a>
+            <a href="environment.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Environment</a>
+            <a href="showrooms.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Showrooms</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="contact.html" class="nav-link active text-[12.5px] font-medium uppercase tracking-wide text-ink-soft hover:text-hide transition-colors">Contact</a>
+        <a href="contact.html" class="btn-hide bg-ink text-white text-[12.5px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="fixed inset-0 z-[70] bg-ink text-white lg:hidden">
+  <div class="flex justify-between items-center px-6 h-20">
+    <span class="font-display text-lg">Menu</span>
+    <button id="menu-close" class="w-10 h-10 flex items-center justify-center">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav class="flex flex-col gap-1 px-6 mt-6 text-2xl font-display">
+    <a href="index.html" class="py-3 border-b border-white/10">Home</a>
+    <a href="products.html" class="py-3 border-b border-white/10">Products</a>
+    <a href="tanneries.html" class="py-3 border-b border-white/10">Tanneries</a>
+    <a href="swatches.html" class="py-3 border-b border-white/10">Swatches</a>
+    <a href="projects.html" class="py-3 border-b border-white/10">Projects</a>
+    <a href="environment.html" class="py-3 border-b border-white/10">Environment</a>
+    <a href="about.html" class="py-3 border-b border-white/10">About Us</a>
+    <a href="showrooms.html" class="py-3 border-b border-white/10">Showrooms</a>
+    <a href="contact.html" class="py-3">Contact</a>
+  </nav>
+  <a href="contact.html" class="mx-6 mt-8 block text-center bg-hide text-white rounded-full py-3.5 font-sans text-sm uppercase tracking-wide font-semibold">Request Sample</a>
+</div>
+
+<section class="pt-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 text-center">
+    <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">Contact Us</span>
+    <h1 class="font-display text-5xl lg:text-6xl mt-4 reveal" style="transition-delay:.08s">Let's talk leather</h1>
+    <p class="text-ink-soft max-w-xl mx-auto mt-5 reveal" style="transition-delay:.16s">Samples, bulk orders, or tannery partnerships — our team responds within one business day.</p>
+  </div>
+</section>
+
+<!-- Contact grid -->
+<section class="max-w-7xl mx-auto px-6 lg:px-10 pb-24">
+  <div class="grid lg:grid-cols-5 gap-10">
+
+    <!-- Form -->
+    <div class="lg:col-span-3 bg-white border border-line rounded-3xl p-8 lg:p-10 reveal-left">
+      <h2 class="font-display text-2xl mb-6">Send us a message</h2>
+
+      <div id="form-success" class="hidden mb-6 bg-hide/10 border border-hide/30 text-hide-dark rounded-xl px-5 py-4 text-sm font-medium">
+        Thanks — your message has been sent. Our team will be in touch shortly.
+      </div>
+
+      <form id="contact-form" class="space-y-5">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Full Name</label>
+            <input required type="text" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Jane Smith" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Company</label>
+            <input type="text" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Studio / Company name" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Email</label>
+            <input required type="email" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="jane@studio.com" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Phone</label>
+            <input type="tel" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="+61 4XX XXX XXX" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Enquiry Type</label>
+          <select class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all bg-white">
+            <option>Sample Request</option>
+            <option>Bulk / Wholesale Pricing</option>
+            <option>Tannery Partnership</option>
+            <option>Project Consultation</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Message</label>
+          <textarea rows="5" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Tell us about your project or requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn-hide w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ink text-white text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full">
+          Send Message
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Side info -->
+    <div class="lg:col-span-2 space-y-5 reveal-right">
+      <div class="bg-ink text-white rounded-3xl p-8 grain relative overflow-hidden">
+        <div class="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-hide/20 blur-2xl"></div>
+        <img src="assets/img/logo-mark.svg" class="w-10 h-10 mb-5 relative floaty" alt="" />
+        <h3 class="font-display text-xl mb-4 relative">Head Office</h3>
+        <ul class="space-y-3 text-sm text-white/70 relative">
+          <li class="flex gap-3"><span class="text-hide-light">☎</span> Sydney: +61 2 9355 3600</li>
+          <li class="flex gap-3"><span class="text-hide-light">☎</span> Melbourne: +61 3 9417 3466</li>
+          <li class="flex gap-3"><span class="text-hide-light">✉</span> info@terrahideglobal.com</li>
+          <li class="flex gap-3"><span class="text-hide-light">⌂</span> 14 Wentworth Ave, Sydney NSW 2000</li>
+        </ul>
+      </div>
+
+      <div class="border border-line rounded-3xl p-8 bg-white">
+        <h3 class="font-display text-xl mb-4">Business Hours</h3>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span class="text-ink-soft">Monday – Friday</span><span class="font-medium">8:30am – 5:00pm</span></div>
+          <div class="flex justify-between"><span class="text-ink-soft">Saturday</span><span class="font-medium">By appointment</span></div>
+          <div class="flex justify-between"><span class="text-ink-soft">Sunday</span><span class="font-medium">Closed</span></div>
+        </div>
+        <a href="showrooms.html" class="link-underline inline-flex items-center gap-2 text-hide-dark font-semibold uppercase text-xs tracking-wide mt-6">
+          View all showrooms →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-cream py-24">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <h2 class="font-display text-4xl mb-10 text-center reveal">Frequently asked</h2>
+    <div class="space-y-3 reveal">
+      <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+        <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+          <span class="font-semibold">What is your minimum order quantity?</span>
+          <span class="acc-icon text-2xl text-hide">+</span>
+        </button>
+        <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">Minimums vary by product line — most upholstery grades start from a single hide, while custom colourways may require a minimum run. Contact us with your specs for an exact quote.</p></div>
+      </div>
+      <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+        <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+          <span class="font-semibold">How long does a sample request take?</span>
+          <span class="acc-icon text-2xl text-hide">+</span>
+        </button>
+        <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">Stocked swatches typically ship within 2-3 business days. Custom-matched samples from our tannery network can take 1-2 weeks depending on origin.</p></div>
+      </div>
+      <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+        <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+          <span class="font-semibold">Do you ship internationally?</span>
+          <span class="acc-icon text-2xl text-hide">+</span>
+        </button>
+        <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">Yes — we serve clients across 42 countries with regional warehousing to reduce freight time and cost.</p></div>
+      </div>
+      <div class="acc-item border border-line rounded-2xl bg-white overflow-hidden">
+        <button class="acc-trigger w-full flex items-center justify-between p-6 text-left">
+          <span class="font-semibold">Can I become a tannery partner?</span>
+          <span class="acc-icon text-2xl text-hide">+</span>
+        </button>
+        <div class="acc-panel px-6"><p class="text-ink-soft text-sm leading-relaxed pb-6">We're always open to new partnerships with tanneries that meet our quality and sustainability certification standards. Select "Tannery Partnership" in the form above to get started.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-ink text-white/70 pt-20 pb-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-5 gap-10">
+    <div class="md:col-span-2">
+      <a href="index.html" class="flex items-center gap-3 mb-4">
+        <img src="assets/img/logo-mark.svg" class="w-9 h-9" alt="" />
+        <span class="font-display text-lg text-white">TERRAHIDE GLOBAL</span>
+      </a>
+      <p class="text-sm leading-relaxed max-w-xs">Connecting world-class tanneries with global markets — sourcing, quality, and logistics for premium leather.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">in</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">ig</a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-hide hover:border-hide transition-colors">fb</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Range</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="products.html#upholstery" class="hover:text-white transition-colors">Upholstery</a></li>
+        <li><a href="products.html#craft" class="hover:text-white transition-colors">Craft &amp; Belting</a></li>
+        <li><a href="products.html#goods" class="hover:text-white transition-colors">Leathergoods</a></li>
+        <li><a href="products.html#hides" class="hover:text-white transition-colors">Hides</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+                <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
+        <li><a href="swatches.html" class="hover:text-white transition-colors">Swatch Library</a></li>
+<li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="environment.html" class="hover:text-white transition-colors">Environment</a></li>
+        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+        <li><a href="showrooms.html" class="hover:text-white transition-colors">Showrooms</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Get Help</h4>
+      <ul class="space-y-2 text-sm">
+        <li>+61 2 9355 3600</li>
+        <li>info@terrahideglobal.com</li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© 2026 Terrahide Global Pty Ltd. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-white transition-colors">Terms &amp; Conditions</a>
+      <a href="#" class="hover:text-white transition-colors">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-xl hover:bg-hide transition-colors">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
