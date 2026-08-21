@@ -328,61 +328,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============ Hero image carousel ============
+  // ============ Cinematic hero carousel ============
   document.querySelectorAll('[data-hero-carousel]').forEach(carousel => {
     const slides = carousel.querySelectorAll('.hero-slide');
-    const dots = carousel.querySelectorAll('[data-hero-goto]');
-    const ring = carousel.querySelector('[data-hero-ring]');
+    const railItems = carousel.querySelectorAll('[data-hero-goto]');
+    const captions = carousel.querySelectorAll('[data-hero-caption]');
+    const bar = carousel.querySelector('[data-hero-bar]');
     const prevBtn = carousel.querySelector('[data-hero-prev]');
     const nextBtn = carousel.querySelector('[data-hero-next]');
     if (!slides.length) return;
 
     let current = 0;
-    let autoplayTimer = null;
-    let ringStart = null;
-    const DURATION = 5000;
-    const RING_CIRCUMFERENCE = 88;
+    let rafId = null;
+    let segStart = null;
+    let paused = false;
+    const DURATION = 6000;
 
-    const goTo = (index) => {
-      current = (index + slides.length) % slides.length;
+    const render = () => {
       slides.forEach((s, i) => s.classList.toggle('active', i === current));
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-      restartAutoplay();
+      railItems.forEach((r, i) => r.classList.toggle('active', i === current));
+      captions.forEach((c, i) => {
+        const on = i === current;
+        c.classList.toggle('hidden', !on);
+        if (on) {
+          // re-trigger the word-in animation for the active caption
+          c.querySelectorAll('.hero-word').forEach((w, wi) => {
+            w.style.animation = 'none';
+            void w.offsetWidth;
+            w.style.animation = '';
+            w.style.animationDelay = (wi * 0.06) + 's';
+          });
+        }
+      });
     };
 
+    const goTo = (i) => {
+      current = (i + slides.length) % slides.length;
+      render();
+      restart();
+    };
     const next = () => goTo(current + 1);
     const prev = () => goTo(current - 1);
 
-    const animateRing = (timestamp) => {
-      if (!ringStart) ringStart = timestamp;
-      const elapsed = timestamp - ringStart;
-      const pct = Math.min(elapsed / DURATION, 1);
-      if (ring) ring.style.strokeDashoffset = RING_CIRCUMFERENCE * (1 - pct);
-      if (pct < 1) {
-        autoplayTimer = requestAnimationFrame(animateRing);
-      } else {
-        next();
-      }
+    const tick = (ts) => {
+      if (paused) return;
+      if (!segStart) segStart = ts;
+      const pct = Math.min((ts - segStart) / DURATION, 1);
+      if (bar) bar.style.transform = 'scaleX(' + pct + ')';
+      if (pct >= 1) { next(); return; }
+      rafId = requestAnimationFrame(tick);
     };
 
-    const restartAutoplay = () => {
-      if (autoplayTimer) cancelAnimationFrame(autoplayTimer);
-      ringStart = null;
-      if (ring) ring.style.strokeDashoffset = RING_CIRCUMFERENCE;
-      autoplayTimer = requestAnimationFrame(animateRing);
+    const restart = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      segStart = null;
+      if (bar) bar.style.transform = 'scaleX(0)';
+      rafId = requestAnimationFrame(tick);
     };
 
     nextBtn && nextBtn.addEventListener('click', next);
     prevBtn && prevBtn.addEventListener('click', prev);
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.heroGoto, 10)));
+    railItems.forEach(item => {
+      item.addEventListener('click', () => goTo(parseInt(item.dataset.heroGoto, 10)));
     });
 
-    // Pause on hover, resume on leave
     carousel.addEventListener('pointerenter', () => {
-      if (autoplayTimer) cancelAnimationFrame(autoplayTimer);
+      paused = true;
+      if (rafId) cancelAnimationFrame(rafId);
     });
-    carousel.addEventListener('pointerleave', () => restartAutoplay());
+    carousel.addEventListener('pointerleave', () => {
+      paused = false;
+      restart();
+    });
 
     // Swipe support
     let touchStartX = null;
@@ -394,7 +411,348 @@ document.addEventListener('DOMContentLoaded', () => {
       touchStartX = null;
     });
 
-    restartAutoplay();
+    render();
+    restart();
+  });
+
+  // ============ Header shrink-on-scroll (editorial header) ============
+  const headerShell = document.querySelector('.header-shell');
+  if (headerShell) {
+    const onHeaderScroll = () => {
+      headerShell.classList.toggle('is-compact', window.scrollY > 60);
+    };
+    document.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+  }
+
+  // ============ Region / language switcher ============
+  document.querySelectorAll('.region-switch').forEach(sw => {
+    const trigger = sw.querySelector('[data-region-trigger]');
+    trigger && trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = sw.classList.contains('open');
+      document.querySelectorAll('.region-switch.open').forEach(o => o.classList.remove('open'));
+      if (!isOpen) sw.classList.add('open');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.region-switch.open').forEach(o => o.classList.remove('open'));
+  });
+
+  // ============ Testimonial carousel ============
+  document.querySelectorAll('[data-testimonials]').forEach(wrap => {
+    const slides = wrap.querySelectorAll('.testi-slide');
+    const dots = wrap.querySelectorAll('[data-testi-goto]');
+    if (!slides.length) return;
+    let idx = 0;
+    let timer = null;
+    const show = (i) => {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle('active', n === idx));
+      dots.forEach((d, n) => d.classList.toggle('active', n === idx));
+    };
+    const restart = () => {
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => show(idx + 1), 6000);
+    };
+    dots.forEach(d => d.addEventListener('click', () => { show(parseInt(d.dataset.testiGoto, 10)); restart(); }));
+    show(0);
+    restart();
+  });
+
+  // ============ Lookbook full-bleed panel reveal ============
+  const lookbookIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      else entry.target.classList.remove('is-visible');
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.lookbook-panel').forEach(p => lookbookIO.observe(p));
+
+  // ============ Newsletter / trade signup form (demo only) ============
+  const tradeForm = document.getElementById('trade-form');
+  if (tradeForm) {
+    tradeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = tradeForm.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.innerHTML = 'Submitting…';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('trade-success')?.classList.remove('hidden');
+        tradeForm.reset();
+        btn.innerHTML = original;
+        btn.disabled = false;
+      }, 1100);
+    });
+  }
+
+  // ============ World map: nodes + region list sync ============
+  document.querySelectorAll('[data-origin-map]').forEach(map => {
+    const nodes = map.querySelectorAll('[data-region-node]');
+    const rows  = map.querySelectorAll('[data-region-row]');
+    if (!nodes.length && !rows.length) return;
+
+    const select = (key) => {
+      nodes.forEach(n => n.classList.toggle('active', n.dataset.regionNode === key));
+      rows.forEach(r => r.classList.toggle('active', r.dataset.regionRow === key));
+    };
+
+    nodes.forEach(n => {
+      n.addEventListener('mouseenter', () => select(n.dataset.regionNode));
+      n.addEventListener('click', () => select(n.dataset.regionNode));
+    });
+    rows.forEach(r => {
+      r.addEventListener('mouseenter', () => select(r.dataset.regionRow));
+      r.addEventListener('click', () => select(r.dataset.regionRow));
+    });
+
+    // draw arcs once the map scrolls into view
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.25 });
+    const shell = map.querySelector('.map-shell') || map;
+    io.observe(shell);
+
+    if (rows.length) select(rows[0].dataset.regionRow);
+  });
+
+  // ============ Process reel: animated photo-sequence with play/pause ============
+  document.querySelectorAll('[data-reel]').forEach(wrap => {
+    const slides = wrap.querySelectorAll('.reel-slide');
+    const steps = wrap.parentElement.querySelectorAll('[data-video-step]');
+    const playBtn = wrap.querySelector('[data-reel-play]');
+    const fill = wrap.querySelector('.reel-progress-fill');
+    if (!slides.length) return;
+
+    let idx = 0;
+    let playing = true;
+    let raf = null;
+    let segStart = null;
+    const SEG_MS = 3200;
+
+    const applyState = () => {
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+      steps.forEach((s, i) => s.classList.toggle('active', i === idx));
+    };
+
+    const tick = (ts) => {
+      if (!playing) return;
+      if (!segStart) segStart = ts;
+      const elapsed = ts - segStart;
+      const pct = Math.min(elapsed / SEG_MS, 1);
+      if (fill) fill.style.width = (pct * 100) + '%';
+      if (pct >= 1) {
+        idx = (idx + 1) % slides.length;
+        segStart = ts;
+        applyState();
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    const play = () => {
+      playing = true;
+      segStart = null;
+      wrap.classList.add('is-playing');
+      if (playBtn) playBtn.innerHTML = '<svg class="w-6 h-6 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>';
+      raf = requestAnimationFrame(tick);
+    };
+    const pause = () => {
+      playing = false;
+      wrap.classList.remove('is-playing');
+      if (raf) cancelAnimationFrame(raf);
+      if (playBtn) playBtn.innerHTML = '<svg class="w-6 h-6 text-ink ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    };
+
+    playBtn && playBtn.addEventListener('click', () => playing ? pause() : play());
+    applyState();
+    play();
+  });
+
+  // ============ FAQ accordion (home page) ============
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    const panel = item.querySelector('.faq-panel');
+    if (!trigger || !panel) return;
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq-item').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-panel').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ============ Film section: play / pause ============
+  document.querySelectorAll('[data-film]').forEach(frame => {
+    const video = frame.querySelector('video');
+    const btn   = frame.querySelector('[data-film-btn]');
+    if (!video || !btn) return;
+
+    const PLAY  = '<svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    const PAUSE = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6"/></svg>';
+
+    const sync = () => { btn.innerHTML = video.paused ? PLAY : PAUSE; };
+
+    btn.addEventListener('click', () => {
+      if (video.paused) video.play(); else video.pause();
+    });
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    sync();
+
+    // Pause when scrolled out of view, resume when back (saves bandwidth)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { if (video.dataset.userPaused !== '1') video.play().catch(()=>{}); }
+        else video.pause();
+      });
+    }, { threshold: 0.25 });
+    io.observe(frame);
+
+    btn.addEventListener('click', () => {
+      video.dataset.userPaused = video.paused ? '1' : '0';
+    });
+  });
+
+  // ============ Cursor-lens reveal (X-ray magnifier) ============
+  document.querySelectorAll('[data-lens]').forEach(stage => {
+    const base     = stage.querySelector('.lens-base');
+    const clip     = stage.querySelector('.lens-clip');
+    const zoom     = stage.querySelector('.lens-zoom');
+    const ring     = stage.querySelector('.lens-ring');
+    const readout  = stage.querySelector('.lens-readout');
+    const pills    = stage.parentElement.querySelectorAll('[data-grade]');
+    const nameEl   = stage.parentElement.querySelector('[data-grade-name]');
+    const descEl   = stage.parentElement.querySelector('[data-grade-desc]');
+    const originEl = stage.querySelector('[data-grade-origin]');
+    if (!base || !zoom || !ring || !clip) return;
+
+    const ZOOM = 3.4;
+    const D    = parseInt(getComputedStyle(stage).getPropertyValue('--lens-d')) || 230;
+    let raf = null;
+
+    const place = (x, y) => {
+      const r = stage.getBoundingClientRect();
+      const px = (x / r.width) * 100;
+      const py = (y / r.height) * 100;
+      // clip the magnified layer to a circle under the cursor
+      clip.style.clipPath = `circle(${D / 2}px at ${x}px ${y}px)`;
+      // scale about the cursor so the grain under the lens matches the base
+      zoom.style.transformOrigin = `${px}% ${py}%`;
+      zoom.style.transform = `scale(${ZOOM})`;
+      ring.style.left = x + 'px';
+      ring.style.top  = y + 'px';
+      if (readout) {
+        readout.style.left = x + 'px';
+        readout.style.top  = (y + D / 2 + 14) + 'px';
+      }
+    };
+
+    const onMove = (e) => {
+      const r = stage.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => place(x, y));
+    };
+
+    stage.addEventListener('pointerenter', (e) => {
+      stage.classList.add('lens-on');
+      onMove(e);
+    });
+    stage.addEventListener('pointermove', onMove);
+    stage.addEventListener('pointerleave', () => {
+      stage.classList.remove('lens-on');
+      if (raf) cancelAnimationFrame(raf);
+      clip.style.clipPath = 'circle(0px at 50% 50%)';
+    });
+
+    // Grade switching
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const d = pill.dataset;
+        // cross-fade to the new hide
+        base.classList.add('is-hidden');
+        zoom.classList.add('is-hidden');
+        setTimeout(() => {
+          base.src = d.img;
+          zoom.src = d.img;
+          base.alt = d.alt || '';
+          base.classList.remove('is-hidden');
+          zoom.classList.remove('is-hidden');
+        }, 260);
+
+        if (nameEl)   nameEl.textContent   = d.gradename || '';
+        if (descEl)   descEl.textContent   = d.desc || '';
+        if (originEl) originEl.textContent = d.origin || '';
+        if (readout)  readout.textContent  = d.spec || '';
+      });
+    });
+  });
+
+  // ============ Hide anatomy diagram ============
+  document.querySelectorAll('[data-anatomy]').forEach(wrap => {
+    const svg    = wrap.querySelector('.anat-svg');
+    const zones  = wrap.querySelectorAll('[data-zone]');
+    const panels = wrap.querySelectorAll('[data-zone-detail]');
+    if (!zones.length) return;
+
+    const select = (key) => {
+      zones.forEach(z => z.classList.toggle('active', z.dataset.zone === key));
+      panels.forEach(p => p.classList.toggle('active', p.dataset.zoneDetail === key));
+      if (svg) svg.classList.add('has-active');
+    };
+
+    zones.forEach(z => {
+      z.addEventListener('mouseenter', () => select(z.dataset.zone));
+      z.addEventListener('click', () => select(z.dataset.zone));
+      z.addEventListener('focus', () => select(z.dataset.zone));
+    });
+
+    // default selection
+    select(zones[0].dataset.zone);
+  });
+
+  // ============ Craft techniques tabs ============
+  document.querySelectorAll('[data-craft]').forEach(wrap => {
+    const tabs = wrap.querySelectorAll('[data-craft-tab]');
+    const panes = wrap.querySelectorAll('[data-craft-pane]');
+    if (!tabs.length) return;
+
+    let idx = 0;
+    let timer = null;
+    const CYCLE = 5200;
+
+    const show = (i) => {
+      idx = (i + tabs.length) % tabs.length;
+      tabs.forEach((t, n) => t.classList.toggle('active', n === idx));
+      panes.forEach((p, n) => p.classList.toggle('active', n === idx));
+    };
+    const restart = () => {
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => show(idx + 1), CYCLE);
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => { show(i); restart(); });
+      tab.addEventListener('mouseenter', () => { show(i); restart(); });
+    });
+
+    wrap.addEventListener('pointerenter', () => { if (timer) clearInterval(timer); });
+    wrap.addEventListener('pointerleave', () => restart());
+
+    show(0);
+    restart();
   });
 
 });

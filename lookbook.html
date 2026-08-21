@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Projects — TERRAHIDE GLOBAL</title>
-<meta name="description" content="Case studies and completed projects featuring Terrahide Global leathers, from hospitality to automotive." />
+<title>Lookbook — TERRAHIDE GLOBAL</title>
+<meta name="description" content="Terrahide Global Lookbook — a seasonal editorial gallery of leather in furniture, fashion, and craft." />
 <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 </script>
 <link rel="stylesheet" href="assets/css/site.css" />
 </head>
-<body class="bg-sand text-ink antialiased">
+<body class="bg-ink text-sand antialiased">
 
 <div id="page-loader"><div class="flex flex-col items-center gap-4"><img src="assets/img/logo-mark.svg" class="w-14 h-14 floaty" alt="" /><span class="font-display italic text-hide tracking-wide">Terrahide Global</span></div></div>
 <div id="scroll-progress"></div>
@@ -23,8 +23,6 @@
 
 <!-- ============ HEADER (editorial, split-nav, centered logo) ============ -->
 <div class="header-shell fixed top-0 inset-x-0 z-50">
-
-  <!-- Locale / announcement bar -->
   <div class="locale-bar">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 h-9 flex items-center justify-between">
       <div class="region-switch" id="region-switch">
@@ -47,12 +45,9 @@
 
   <div class="gold-hairline"></div>
 
-  <!-- Primary editorial header -->
-  <div class="editorial-header bg-sand/95 backdrop-blur-md pt-4 pb-4">
+  <div class="editorial-header bg-ink/90 backdrop-blur-md pt-4 pb-4">
     <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-3 items-center">
-
-      <!-- Left nav -->
-      <nav class="hidden lg:flex items-center gap-6 text-[12px] font-medium uppercase tracking-wide text-ink-soft">
+      <nav class="hidden lg:flex items-center gap-6 text-[12px] font-medium uppercase tracking-wide text-white/70">
         <a href="index.html" class="nav-link py-2">Home</a>
 
         <div class="group relative">
@@ -80,17 +75,15 @@
         </div>
 
         <a href="tanneries.html" class="nav-link py-2">Tanneries</a>
-        <a href="lookbook.html" class="nav-link py-2">Lookbook</a>
+        <a href="lookbook.html" class="nav-link active py-2">Lookbook</a>
       </nav>
 
-      <!-- Center logo -->
       <a href="index.html" class="brand-mark flex flex-col items-center justify-self-center group">
         <img src="assets/img/logo-mark.svg" class="w-9 h-9 transition-transform duration-500 group-hover:rotate-12" alt="Terrahide Global" />
-        <span class="font-display text-lg tracking-tight leading-none mt-1 whitespace-nowrap">TERRAHIDE <span class="text-hide">GLOBAL</span></span>
+        <span class="font-display text-lg tracking-tight leading-none mt-1 whitespace-nowrap text-white">TERRAHIDE <span class="text-hide-light">GLOBAL</span></span>
       </a>
 
-      <!-- Right nav + actions -->
-      <div class="hidden lg:flex items-center justify-end gap-6 text-[12px] font-medium uppercase tracking-wide text-ink-soft">
+      <div class="hidden lg:flex items-center justify-end gap-6 text-[12px] font-medium uppercase tracking-wide text-white/70">
         <a href="journal.html" class="nav-link py-2">Journal</a>
         <a href="about.html" class="nav-link py-2">About</a>
 
@@ -106,11 +99,10 @@
           </div>
         </div>
 
-        <a href="contact.html" class="btn-hide bg-ink text-white text-[12px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
+        <a href="contact.html" class="btn-hide bg-white text-ink text-[12px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
       </div>
 
-      <!-- Mobile trigger -->
-      <button id="menu-btn" class="lg:hidden justify-self-end w-10 h-10 flex items-center justify-center">
+      <button id="menu-btn" class="lg:hidden justify-self-end w-10 h-10 flex items-center justify-center text-white">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
@@ -140,129 +132,127 @@
   </nav>
   <a href="contact.html" class="mx-6 mt-8 block text-center bg-hide text-white rounded-full py-3.5 font-sans text-sm uppercase tracking-wide font-semibold">Request Sample</a>
 </div>
-<section class="pt-20">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-    <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">Projects</span>
-    <h1 class="font-display text-5xl lg:text-6xl mt-4 reveal" style="transition-delay:.08s">Get inspired by real installations</h1>
-    <p class="text-ink-soft max-w-xl mt-5 reveal" style="transition-delay:.16s">A look at how our leathers show up in hospitality, residential, and automotive projects around the world.</p>
+
+<!-- ============ LOOKBOOK INTRO ============ -->
+<section class="lookbook-panel is-visible">
+  <div class="lookbook-bg">
+    <img src="https://images.unsplash.com/photo-1762380831526-c5205ee367c6?q=80&w=1800&auto=format&fit=crop" alt="Two raw hides laid out on cobblestone in dramatic light" />
+    <div class="absolute inset-0 bg-ink/55"></div>
   </div>
-</section>
-
-<!-- Featured project -->
-<section class="max-w-7xl mx-auto px-6 lg:px-10 mb-20">
-  <a href="#" class="group relative block rounded-3xl overflow-hidden reveal-scale">
-    <img src="https://images.unsplash.com/photo-1759038086545-a905cb519ae8?q=80&w=1800&auto=format&fit=crop" class="hover-img w-full h-[560px] object-cover" alt="Curved leather booths and lounge chairs in a hotel lobby" />
-    <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
-    <div class="absolute bottom-10 left-10 right-10">
-      <span class="bg-hide text-white text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hospitality</span>
-      <h2 class="font-display text-white text-4xl lg:text-5xl mt-4 max-w-xl">Harbourfront Hotel Lounge, Sydney</h2>
-      <p class="text-white/70 mt-3 max-w-lg">Full-grain aniline banquette seating in Terrahide's Elementa collection, finished in a custom cognac tone.</p>
-    </div>
-  </a>
-</section>
-
-<!-- Project grid -->
-<section class="max-w-7xl mx-auto px-6 lg:px-10 pb-20">
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-
-    <article class="reveal group">
-      <div class="hover-card relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1627449545079-7f553ce5d029?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather chairs near a glass window in a rooftop bar" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hospitality</span>
-      </div>
-      <h3 class="font-display text-xl">Rooftop Bar, Melbourne</h3>
-      <p class="text-sm text-ink-soft mt-1">Marine-grade outdoor leather across 40 booth seats</p>
-    </article>
-
-    <article class="reveal group" style="transition-delay:.05s">
-      <div class="hover-card relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1614530499660-fe1fbd7921d6?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather car seat interior trim" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Automotive</span>
-      </div>
-      <h3 class="font-display text-xl">Heritage Vehicle Restoration</h3>
-      <p class="text-sm text-ink-soft mt-1">Custom-matched hide for a 1967 interior retrim</p>
-    </article>
-
-    <article class="reveal group" style="transition-delay:.1s">
-      <div class="hover-card relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1605797063353-4cbcb6027f2c?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather armchair beside a wooden table in a residence" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Residential</span>
-      </div>
-      <h3 class="font-display text-xl">Coastal Residence, Byron Bay</h3>
-      <p class="text-sm text-ink-soft mt-1">Full-grain sofa &amp; armchair upholstery suite</p>
-    </article>
-
-    <article class="reveal group" style="transition-delay:.15s">
-      <div class="hover-card relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1671714234279-63412506e5a0?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Close-up of a leather upholstered wall panel" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Commercial</span>
-      </div>
-      <h3 class="font-display text-xl">Corporate HQ Reception</h3>
-      <p class="text-sm text-ink-soft mt-1">Wall-panel leather cladding &amp; reception seating</p>
-    </article>
-
-    <article class="reveal group" style="transition-delay:.2s">
-      <div class="hover-card relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1616693153250-bb03055788eb?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather loveseat used as a headboard feature" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hospitality</span>
-      </div>
-      <h3 class="font-display text-xl">Boutique Hotel Headboards</h3>
-      <p class="text-sm text-ink-soft mt-1">120 rooms finished in nubuck-textured hide</p>
-    </article>
-
-    <article class="reveal group" style="transition-delay:.25s">
-      <div class="hover-card relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1637759292654-a12cb2be085e?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather handbag from an artisan goods studio" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Manufacturing</span>
-      </div>
-      <h3 class="font-display text-xl">Artisan Goods Studio Supply</h3>
-      <p class="text-sm text-ink-soft mt-1">Ongoing strap &amp; satchel leather program</p>
-    </article>
-
-  </div>
-</section>
-
-<!-- Process strip -->
-<section class="bg-ink py-24">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <h2 class="font-display text-4xl text-white mb-14 reveal">How we deliver a project</h2>
-    <div class="grid md:grid-cols-4 gap-8 reveal-stagger">
-      <div class="relative pl-0">
-        <span class="font-display text-6xl text-hide/40">01</span>
-        <h3 class="text-white text-lg font-semibold mt-3">Brief &amp; Sample</h3>
-        <p class="text-white/60 text-sm mt-2">Share your application, volume, and finish requirements.</p>
-      </div>
-      <div class="relative">
-        <span class="font-display text-6xl text-hide/40">02</span>
-        <h3 class="text-white text-lg font-semibold mt-3">Source &amp; Match</h3>
-        <p class="text-white/60 text-sm mt-2">We pull from our tannery network to match grade &amp; colour.</p>
-      </div>
-      <div class="relative">
-        <span class="font-display text-6xl text-hide/40">03</span>
-        <h3 class="text-white text-lg font-semibold mt-3">Quality Check</h3>
-        <p class="text-white/60 text-sm mt-2">Every hide is inspected before it leaves our warehouse.</p>
-      </div>
-      <div class="relative">
-        <span class="font-display text-6xl text-hide/40">04</span>
-        <h3 class="text-white text-lg font-semibold mt-3">Deliver &amp; Support</h3>
-        <p class="text-white/60 text-sm mt-2">Global logistics with ongoing reorder support.</p>
-      </div>
+  <div class="lookbook-caption relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">Seasonal Edit — I</span>
+    <h1 class="font-display text-white text-6xl lg:text-8xl mt-6 leading-none">Lookbook</h1>
+    <p class="text-white/70 max-w-lg mx-auto mt-6">Before the finish, before the cut — a scroll through the raw material we source, and the hands that turn it.</p>
+    <div class="mt-10 animate-bounce">
+      <svg class="w-6 h-6 mx-auto text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="max-w-7xl mx-auto px-6 lg:px-10 py-24">
-  <div class="relative rounded-3xl overflow-hidden bg-hide-dark grain reveal-scale">
-    <div class="absolute -left-10 -bottom-16 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
-    <div class="relative px-8 py-16 lg:py-20 text-center max-w-2xl mx-auto">
-      <h2 class="font-display text-white text-4xl lg:text-5xl leading-tight">Have a project in mind?</h2>
-      <p class="text-white/70 mt-4">Send us your specs and we'll recommend the right leather for the job.</p>
-      <a href="contact.html" class="btn-hide inline-flex items-center gap-2 bg-white text-ink mt-8 text-sm font-semibold uppercase tracking-wide px-7 py-4 rounded-full">
-        Start a Project
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
+<!-- ============ PANEL 01 — raw hides ============ -->
+<section class="lookbook-panel">
+  <div class="lookbook-bg">
+    <img src="https://images.unsplash.com/photo-1769034522831-a3f611474c96?q=80&w=1800&auto=format&fit=crop" alt="Raw hides drying on open racks at a tannery" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/25 to-transparent"></div>
+  </div>
+  <div class="lookbook-caption relative z-10 max-w-xl px-6 lg:px-16">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">01 — Raw Stock</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">Hides, before anything happens to them</h2>
+    <p class="text-white/70 mt-5 leading-relaxed">Cured and air-dried on open racks. Every hide is graded here — thickness, density, scarring — long before it sees a dye pit.</p>
+  </div>
+</section>
+
+<!-- ============ PANEL 02 — dye pits ============ -->
+<section class="lookbook-panel">
+  <div class="lookbook-bg">
+    <img src="https://images.unsplash.com/photo-1777929746858-45bbe0134e88?q=80&w=1800&auto=format&fit=crop" alt="Aerial view of tannery dye pits with a worker" />
+    <div class="absolute inset-0 bg-gradient-to-l from-ink/85 via-ink/25 to-transparent"></div>
+  </div>
+  <div class="lookbook-caption relative z-10 max-w-xl px-6 lg:px-16 ml-auto text-right">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">02 — The Pits</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">Colour, mixed by eye</h2>
+    <p class="text-white/70 mt-5 leading-relaxed">No recipe cards. A dye master reads a vat the way a sommelier reads a glass — and adjusts by hand until it is right.</p>
+  </div>
+</section>
+
+<!-- ============ PANEL 03 — VIDEO (premium) ============ -->
+<section class="lookbook-panel" data-lookbook-video>
+  <div class="lookbook-bg">
+    <video
+      class="lb-video"
+      autoplay muted loop playsinline
+      poster="https://images.pexels.com/videos/6653241/pexels-photo-6653241.jpeg?auto=compress&cs=tinysrgb&w=1800">
+      <source src="https://videos.pexels.com/video-files/6653241/6653241-hd_1366_720_25fps.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/30 to-transparent"></div>
+  </div>
+  <span class="lb-video-tag">Now Playing</span>
+  <div class="lookbook-caption relative z-10 max-w-xl px-6 lg:px-16">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">03 — In Motion</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">The tannery floor, at work</h2>
+    <p class="text-white/70 mt-5 leading-relaxed">Hides turned, stretched, and hung by hand — the part of the process no photograph quite captures.</p>
+  </div>
+</section>
+
+<!-- ============ PANEL 03B — VIDEO: raw hide drying ============ -->
+<section class="lookbook-panel" data-lookbook-video>
+  <div class="lookbook-bg">
+    <video
+      class="lb-video"
+      autoplay muted loop playsinline
+      poster="https://images.pexels.com/videos/11507511/pexels-photo-11507511.jpeg?auto=compress&cs=tinysrgb&w=1800">
+      <source src="https://videos.pexels.com/video-files/11507511/11507511-hd_1280_720_25fps.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-l from-ink/85 via-ink/30 to-transparent"></div>
+  </div>
+  <span class="lb-video-tag">Now Playing</span>
+  <div class="lookbook-caption relative z-10 max-w-xl px-6 lg:px-16 ml-auto text-right">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">04 — Curing</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">A hide, drying on the rack</h2>
+    <p class="text-white/70 mt-5 leading-relaxed">Stretched over woven cane and left to the air. Nothing accelerates this stage — the hide sets at its own pace.</p>
+  </div>
+</section>
+
+<!-- ============ PANEL 04 — stacked leather ============ -->
+<section class="lookbook-panel">
+  <div class="lookbook-bg">
+    <img src="https://images.unsplash.com/photo-1717406002768-a39613b0c7c1?q=80&w=1800&auto=format&fit=crop" alt="Stacked leather pieces in oxblood, green, grey and tan" />
+    <div class="absolute inset-0 bg-gradient-to-l from-ink/85 via-ink/25 to-transparent"></div>
+  </div>
+  <div class="lookbook-caption relative z-10 max-w-xl px-6 lg:px-16 ml-auto text-right">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">05 — The Stack</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">Finished, folded, waiting</h2>
+    <p class="text-white/70 mt-5 leading-relaxed">Oxblood, forest, stone, and tan — cut to order and stacked by weight before they leave the floor.</p>
+  </div>
+</section>
+
+<!-- ============ PANEL 05 — grain macro ============ -->
+<section class="lookbook-panel">
+  <div class="lookbook-bg">
+    <img src="https://images.unsplash.com/photo-1778883008372-9326b53fc6d4?q=80&w=1800&auto=format&fit=crop" alt="Macro close-up of textured brown leather surface" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/25 to-transparent"></div>
+  </div>
+  <div class="lookbook-caption relative z-10 max-w-xl px-6 lg:px-16">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">06 — The Grain</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">Every hide carries its own record</h2>
+    <p class="text-white/70 mt-5 leading-relaxed">Scars, growth lines, insect marks. We do not sand them out — they are how you know the grain is real.</p>
+  </div>
+</section>
+
+<!-- ============ PANEL 06 — closing ============ -->
+<section class="lookbook-panel">
+  <div class="lookbook-bg">
+    <img src="https://images.unsplash.com/photo-1767636930100-88a49ad94338?q=80&w=1800&auto=format&fit=crop" alt="Dye pits filled with coloured tanning liquor" />
+    <div class="absolute inset-0 bg-ink/72"></div>
+  </div>
+  <div class="lookbook-caption relative z-10 max-w-2xl mx-auto px-6 text-center">
+    <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">Next Season</span>
+    <h2 class="font-display text-white text-4xl lg:text-6xl mt-4 leading-tight">Want early access to new colourways?</h2>
+    <p class="text-white/70 mt-5">Join the trade list to preview each seasonal edit before it reaches the swatch library.</p>
+    <a href="contact.html" class="magnetic btn-hide inline-flex items-center gap-2 bg-white text-ink mt-8 text-sm font-semibold uppercase tracking-wide px-7 py-4 rounded-full">
+      Join the Trade List
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
   </div>
 </section>
 
@@ -292,9 +282,11 @@
     <div>
       <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Company</h4>
       <ul class="space-y-2 text-sm">
-                <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
+        <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
         <li><a href="swatches.html" class="hover:text-white transition-colors">Swatch Library</a></li>
-<li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="lookbook.html" class="hover:text-white transition-colors">Lookbook</a></li>
+        <li><a href="journal.html" class="hover:text-white transition-colors">Journal</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
         <li><a href="environment.html" class="hover:text-white transition-colors">Environment</a></li>
         <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
         <li><a href="showrooms.html" class="hover:text-white transition-colors">Showrooms</a></li>
@@ -318,7 +310,7 @@
   </div>
 </footer>
 
-<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-xl hover:bg-hide transition-colors">
+<button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white text-ink flex items-center justify-center shadow-xl hover:bg-hide hover:text-white transition-colors">
   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
 </button>
 

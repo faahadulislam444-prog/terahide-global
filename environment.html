@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-  tailwind.config = { theme: { extend: { colors: { hide:{DEFAULT:'#8A5A34',dark:'#5E3B22',light:'#C89B6C'}, ink:{DEFAULT:'#221A14',soft:'#4A3B30'}, cream:'#F3EBDF', sand:'#FAF6F0', line:'#E4D7C6' }, fontFamily:{ display:['Fraunces','serif'], sans:['Inter','sans-serif'] } } } }
+  tailwind.config = { theme: { extend: { colors: { hide:{DEFAULT:'#7B2D3B',dark:'#5A1F2B',light:'#C9A227'}, ink:{DEFAULT:'#16181A',soft:'#4A4F52'}, teal:{DEFAULT:'#12494B',deep:'#0C3335'}, cream:'#EFE9DF', sand:'#F7F4EF', line:'#E2DCD2' }, fontFamily:{ display:['Fraunces','serif'], sans:['Inter','sans-serif'] } } } }
 </script>
 <link rel="stylesheet" href="assets/css/site.css" />
 </head>
@@ -21,43 +21,103 @@
 <div id="scroll-progress"></div>
 <div id="cursor-glow"></div>
 
-<header id="site-nav" class="nav-shell fixed top-0 inset-x-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="flex items-center justify-between h-20">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <img src="assets/img/logo-mark.svg" class="w-10 h-10 transition-transform duration-500 group-hover:rotate-12" alt="Terrahide Global" />
-        <span class="font-display text-xl tracking-tight leading-none">TERRAHIDE <span class="text-hide">GLOBAL</span></span>
-      </a>
-      <nav class="hidden lg:flex items-center gap-7 text-[12.5px] font-medium uppercase tracking-wide text-ink-soft">
+<!-- ============ HEADER (editorial, split-nav, centered logo) ============ -->
+<div class="header-shell fixed top-0 inset-x-0 z-50">
+
+  <!-- Locale / announcement bar -->
+  <div class="locale-bar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 h-9 flex items-center justify-between">
+      <div class="region-switch" id="region-switch">
+        <button data-region-trigger class="flex items-center gap-1.5 uppercase">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18M12 21a9 9 0 100-18 9 9 0 000 18z"/></svg>
+          EN &middot; AUD
+          <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="region-panel">
+          <a href="#" class="region-option"><span>🇦🇺</span> English &middot; AUD</a>
+          <a href="#" class="region-option"><span>🇮🇹</span> Italiano &middot; EUR</a>
+          <a href="#" class="region-option"><span>🇬🇧</span> English &middot; GBP</a>
+          <a href="#" class="region-option"><span>🇧🇷</span> Português &middot; BRL</a>
+        </div>
+      </div>
+      <span class="hidden sm:inline uppercase">Est. 1998 &middot; Sourcing Across 4 Continents</span>
+      <a href="showrooms.html" class="uppercase hover:text-hide-light transition-colors">Find a Showroom →</a>
+    </div>
+  </div>
+
+  <div class="gold-hairline"></div>
+
+  <!-- Primary editorial header -->
+  <div class="editorial-header bg-sand/95 backdrop-blur-md pt-4 pb-4">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-3 items-center">
+
+      <!-- Left nav -->
+      <nav class="hidden lg:flex items-center gap-6 text-[12px] font-medium uppercase tracking-wide text-ink-soft">
         <a href="index.html" class="nav-link py-2">Home</a>
-        <a href="products.html" class="nav-link py-2">Products</a>
+
+        <div class="group relative">
+          <button class="nav-link py-2 flex items-center gap-1">Products
+            <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="mega-panel absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[580px] bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-line p-3 grid grid-cols-2 gap-1">
+            <a href="products.html#upholstery" class="flex items-center gap-3 p-3 rounded-xl hover:bg-cream transition-colors">
+              <span class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1671714234279-63412506e5a0?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Cognac button-tufted leather upholstery wall" /></span>
+              <span><span class="block text-ink font-semibold normal-case text-sm">Upholstery Leather</span><span class="block text-xs text-ink-soft normal-case mt-0.5">Indoor &amp; outdoor grade hides</span></span>
+            </a>
+            <a href="products.html#craft" class="flex items-center gap-3 p-3 rounded-xl hover:bg-cream transition-colors">
+              <span class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1763674292700-317879c2038c?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Black leather with contrast saddle stitching" /></span>
+              <span><span class="block text-ink font-semibold normal-case text-sm">Craft &amp; Belting</span><span class="block text-xs text-ink-soft normal-case mt-0.5">Vegetable-tanned tooling leather</span></span>
+            </a>
+            <a href="products.html#goods" class="flex items-center gap-3 p-3 rounded-xl hover:bg-cream transition-colors">
+              <span class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1774702535799-4d08aec80b96?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Cognac leather handbag detail" /></span>
+              <span><span class="block text-ink font-semibold normal-case text-sm">Leathergoods</span><span class="block text-xs text-ink-soft normal-case mt-0.5">Bags, straps &amp; accessories stock</span></span>
+            </a>
+            <a href="products.html#hides" class="flex items-center gap-3 p-3 rounded-xl hover:bg-cream transition-colors">
+              <span class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1778882996096-cc3cd8ec48b5?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Tan full-grain leather hide" /></span>
+              <span><span class="block text-ink font-semibold normal-case text-sm">Raw &amp; Full Hides</span><span class="block text-xs text-ink-soft normal-case mt-0.5">Direct from partner tanneries</span></span>
+            </a>
+          </div>
+        </div>
+
         <a href="tanneries.html" class="nav-link py-2">Tanneries</a>
-        <a href="projects.html" class="nav-link py-2">Projects</a>
+        <a href="lookbook.html" class="nav-link py-2">Lookbook</a>
+      </nav>
+
+      <!-- Center logo -->
+      <a href="index.html" class="brand-mark flex flex-col items-center justify-self-center group">
+        <img src="assets/img/logo-mark.svg" class="w-9 h-9 transition-transform duration-500 group-hover:rotate-12" alt="Terrahide Global" />
+        <span class="font-display text-lg tracking-tight leading-none mt-1 whitespace-nowrap">TERRAHIDE <span class="text-hide">GLOBAL</span></span>
+      </a>
+
+      <!-- Right nav + actions -->
+      <div class="hidden lg:flex items-center justify-end gap-6 text-[12px] font-medium uppercase tracking-wide text-ink-soft">
+        <a href="journal.html" class="nav-link py-2">Journal</a>
         <a href="about.html" class="nav-link py-2">About</a>
 
         <div class="group relative">
-          <button class="nav-link active py-2 flex items-center gap-1">More
+          <button class="nav-link py-2 flex items-center gap-1">More
             <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="mega-panel absolute right-0 top-full mt-3 w-56 bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-line p-2">
             <a href="swatches.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Swatch Library</a>
+            <a href="projects.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Projects</a>
             <a href="environment.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Environment</a>
             <a href="showrooms.html" class="block px-4 py-2.5 rounded-xl hover:bg-cream transition-colors normal-case text-sm text-ink font-medium">Showrooms</a>
           </div>
         </div>
-      </nav>
 
-      <div class="hidden lg:flex items-center gap-4">
-        <a href="contact.html" class="text-[12.5px] font-medium uppercase tracking-wide text-ink-soft hover:text-hide transition-colors">Contact</a>
-        <a href="contact.html" class="btn-hide bg-ink text-white text-[12.5px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
+        <a href="contact.html" class="btn-hide bg-ink text-white text-[12px] font-semibold uppercase tracking-wide px-5 py-2.5 rounded-full whitespace-nowrap">Request Sample</a>
       </div>
-      <button id="menu-btn" class="lg:hidden w-10 h-10 flex items-center justify-center">
+
+      <!-- Mobile trigger -->
+      <button id="menu-btn" class="lg:hidden justify-self-end w-10 h-10 flex items-center justify-center">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </div>
-</header>
+</div>
 
+<!-- Mobile menu -->
 <div id="mobile-menu" class="fixed inset-0 z-[70] bg-ink text-white lg:hidden">
   <div class="flex justify-between items-center px-6 h-20">
     <span class="font-display text-lg">Menu</span>
@@ -69,6 +129,8 @@
     <a href="index.html" class="py-3 border-b border-white/10">Home</a>
     <a href="products.html" class="py-3 border-b border-white/10">Products</a>
     <a href="tanneries.html" class="py-3 border-b border-white/10">Tanneries</a>
+    <a href="lookbook.html" class="py-3 border-b border-white/10">Lookbook</a>
+    <a href="journal.html" class="py-3 border-b border-white/10">Journal</a>
     <a href="swatches.html" class="py-3 border-b border-white/10">Swatches</a>
     <a href="projects.html" class="py-3 border-b border-white/10">Projects</a>
     <a href="environment.html" class="py-3 border-b border-white/10">Environment</a>
@@ -78,7 +140,6 @@
   </nav>
   <a href="contact.html" class="mx-6 mt-8 block text-center bg-hide text-white rounded-full py-3.5 font-sans text-sm uppercase tracking-wide font-semibold">Request Sample</a>
 </div>
-
 <!-- Hero -->
 <section class="pt-20 relative overflow-hidden">
   <img src="https://images.unsplash.com/photo-1767636924116-25561d65fa01?q=80&w=1800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover kenburns" alt="Worker at a traditional leather tannery dye vats" />
@@ -136,7 +197,7 @@
 
   <div class="grid lg:grid-cols-2 gap-14 items-center">
     <div class="reveal-left">
-      <img src="https://images.unsplash.com/photo-1745311924749-7e0c89a20ce6?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Durable leather armchair built to outlast synthetic alternatives" />
+      <img src="https://images.unsplash.com/photo-1769034522831-a3f611474c96?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Raw hides drying naturally on tannery racks" />
     </div>
     <div class="reveal-right">
       <h2 class="font-display text-3xl lg:text-4xl leading-tight">Built to outlast synthetic alternatives</h2>

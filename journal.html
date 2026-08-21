@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Product Range — TERRAHIDE GLOBAL</title>
-<meta name="description" content="Explore Terrahide Global's leather range: upholstery, craft & belting, leathergoods, and raw hides." />
+<title>Journal — TERRAHIDE GLOBAL</title>
+<meta name="description" content="The Terrahide Global Journal — long-form stories on craftsmanship, tanning heritage, and the artisans behind our leather." />
 <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,7 @@
         <a href="index.html" class="nav-link py-2">Home</a>
 
         <div class="group relative">
-          <button class="nav-link active py-2 flex items-center gap-1">Products
+          <button class="nav-link py-2 flex items-center gap-1">Products
             <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="mega-panel absolute left-1/2 -translate-x-1/2 top-full mt-3 w-[580px] bg-white rounded-2xl shadow-2xl shadow-ink/20 border border-line p-3 grid grid-cols-2 gap-1">
@@ -91,7 +91,7 @@
 
       <!-- Right nav + actions -->
       <div class="hidden lg:flex items-center justify-end gap-6 text-[12px] font-medium uppercase tracking-wide text-ink-soft">
-        <a href="journal.html" class="nav-link py-2">Journal</a>
+        <a href="journal.html" class="nav-link active py-2">Journal</a>
         <a href="about.html" class="nav-link py-2">About</a>
 
         <div class="group relative">
@@ -140,137 +140,105 @@
   </nav>
   <a href="contact.html" class="mx-6 mt-8 block text-center bg-hide text-white rounded-full py-3.5 font-sans text-sm uppercase tracking-wide font-semibold">Request Sample</a>
 </div>
-<!-- Page hero -->
-<section class="pt-20">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-    <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">Product Range</span>
-    <h1 class="font-display text-5xl lg:text-6xl mt-4 reveal" style="transition-delay:.08s">Leather for every application</h1>
-    <p class="text-ink-soft max-w-xl mt-5 reveal" style="transition-delay:.16s">From full-grain upholstery to vegetable-tanned belting — sourced direct from our partner tanneries and held in stock across our regional warehouses.</p>
+
+<!-- ============ JOURNAL HERO ============ -->
+<section class="pt-40 pb-16">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">The Journal</span>
+    <h1 class="font-display text-5xl lg:text-6xl mt-5 reveal" style="transition-delay:.08s">Stories from the tanning floor</h1>
+    <p class="text-ink-soft max-w-xl mx-auto mt-5 reveal" style="transition-delay:.16s">Long-form dispatches on craftsmanship, heritage, and the people who turn hide into material worth building a life around.</p>
   </div>
 </section>
 
-<!-- Filter bar -->
-<section class="sticky top-20 z-30 bg-sand/95 backdrop-blur border-y border-line">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-    <button data-filter="all" class="bg-ink text-white px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors">All Products</button>
-    <button data-filter="upholstery" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Upholstery</button>
-    <button data-filter="craft" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Craft &amp; Belting</button>
-    <button data-filter="goods" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Leathergoods</button>
-    <button data-filter="hides" class="border border-line px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide whitespace-nowrap transition-colors hover:border-hide">Hides</button>
-  </div>
-</section>
-
-<!-- Product grid -->
-<section id="upholstery" class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-
-    <article data-category="upholstery" class="reveal group">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1769034522831-a3f611474c96?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Raw hides drying on racks at a tannery" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Indoor</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
+<!-- ============ FEATURED STORY ============ -->
+<section class="max-w-6xl mx-auto px-6 lg:px-10 mb-24">
+  <a href="#story-hands" class="group block reveal-scale">
+    <div class="relative rounded-3xl overflow-hidden aspect-[16/9]">
+      <img src="https://images.unsplash.com/photo-1758252510544-867de633a4cd?q=80&w=1800&auto=format&fit=crop" class="journal-img w-full h-full object-cover" alt="Leather hides drying at a traditional tannery workshop" />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"></div>
+      <div class="absolute bottom-10 left-10 right-10">
+        <span class="bg-hide text-white text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Heritage</span>
+        <h2 class="font-display text-white text-3xl lg:text-5xl mt-4 max-w-2xl">Inside the last hand-dyed tanneries of the old world</h2>
+        <p class="text-white/70 mt-3 max-w-lg">How a handful of family-run tanneries still dye every hide by hand — and why the world's best design houses seek them out.</p>
       </div>
-      <h3 class="font-display text-xl">Full-Grain Aniline</h3>
-      <p class="text-sm text-ink-soft mt-1">Soft-handle upholstery hide, 20 colourways</p>
-    </article>
-
-    <article data-category="upholstery" class="reveal group" style="transition-delay:.05s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1767636930100-88a49ad94338?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Dye pits filled with coloured tanning liquor" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Outdoor</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Marine Grade Nautic</h3>
-      <p class="text-sm text-ink-soft mt-1">UV &amp; salt-resistant outdoor performance leather</p>
-    </article>
-
-    <article data-category="upholstery" class="reveal group" style="transition-delay:.1s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1563986642669-49162177a0bc?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather automotive seat trim" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Automotive</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Elementa Drive</h3>
-      <p class="text-sm text-ink-soft mt-1">High-abrasion automotive &amp; marine trim leather</p>
-    </article>
-
-    <article data-category="craft" class="reveal group" style="transition-delay:.15s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1628483211662-9bcc692c46dc?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Leather tooling wallet with craft tools" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Craft</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Veg-Tan Tooling</h3>
-      <p class="text-sm text-ink-soft mt-1">Vegetable-tanned leather for craft &amp; tooling work</p>
-    </article>
-
-    <article data-category="craft" class="reveal group" style="transition-delay:.2s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1611937685025-8d1df67a80b6?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather harness belt" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Belting</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Harness Belting</h3>
-      <p class="text-sm text-ink-soft mt-1">Heavy oil-tanned strap &amp; belting leather</p>
-    </article>
-
-    <article data-category="goods" class="reveal group" style="transition-delay:.25s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1571273260782-bab4699dde20?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Black leather crossbody satchel" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Goods</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Satchel Grade</h3>
-      <p class="text-sm text-ink-soft mt-1">Full-grain hide for bags &amp; accessories manufacture</p>
-    </article>
-
-    <article data-category="goods" class="reveal group" style="transition-delay:.3s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1705493655920-20c572928501?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Brown leather strap detail" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Goods</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Strap &amp; Trim Stock</h3>
-      <p class="text-sm text-ink-soft mt-1">Pre-cut strap leather for accessory production</p>
-    </article>
-
-    <article data-category="hides" class="reveal group" style="transition-delay:.35s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1747253523365-855fa9288d83?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Rolled sheets of full leather hides" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hides</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Full Hide — Untrimmed</h3>
-      <p class="text-sm text-ink-soft mt-1">Raw full hides direct from partner tanneries</p>
-    </article>
-
-    <article data-category="hides" class="reveal group" style="transition-delay:.4s">
-      <div class="hover-card relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-        <img src="https://images.unsplash.com/photo-1719471497337-dfd794f3176b?q=80&w=800&auto=format&fit=crop" class="hover-img w-full h-full object-cover" alt="Rolled nubuck-toned leather hide" />
-        <span class="absolute top-4 left-4 bg-white/90 text-ink text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full">Hides</span>
-        <button data-sample-btn class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center hover:bg-hide hover:text-white transition-all"><span class="text-xs">♡</span></button>
-      </div>
-      <h3 class="font-display text-xl">Nubuck &amp; Suede</h3>
-      <p class="text-sm text-ink-soft mt-1">Sanded nubuck &amp; split suede hides</p>
-    </article>
-
-  </div>
-</section>
-
-<!-- Craft banner -->
-<section class="bg-cream py-20">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
-    <div class="relative reveal-left">
-      <img src="https://images.unsplash.com/photo-1755924648847-f733ed2818c8?q=80&w=1200&auto=format&fit=crop" class="rounded-3xl w-full h-[420px] object-cover" alt="Leather apron hanging in a craftsman's workshop" />
     </div>
-    <div class="reveal-right">
-      <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold">Custom Sourcing</span>
-      <h2 class="font-display text-4xl mt-4 leading-tight">Can't find the exact grade or colour?</h2>
-      <p class="text-ink-soft mt-5 leading-relaxed">Our tannery network spans four continents. Tell us your application, volume, and finish requirements — we'll source and sample a match within days, not months.</p>
-      <a href="contact.html" class="magnetic btn-hide inline-flex items-center gap-2 bg-ink text-white mt-8 text-sm font-semibold uppercase tracking-wide px-6 py-3.5 rounded-full">
-        Request a Custom Quote
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
+  </a>
+</section>
+
+<!-- ============ ARTICLE GRID ============ -->
+<section class="max-w-6xl mx-auto px-6 lg:px-10 pb-24">
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <article class="journal-card reveal">
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] mb-5">
+        <img src="https://images.unsplash.com/photo-1628483211662-9bcc692c46dc?q=80&w=800&auto=format&fit=crop" class="journal-img w-full h-full object-cover" alt="Leather wallet and craftsman's tools on a workbench" />
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-wide text-hide-dark">Craft</span>
+      <h3 class="font-display text-2xl mt-2 leading-snug">The hand-stitch that takes eleven years to master</h3>
+      <p class="text-sm text-ink-soft mt-2 leading-relaxed">Inside the apprenticeship system that still governs who is allowed to touch a saddle-stitch needle.</p>
+    </article>
+
+    <article class="journal-card reveal" style="transition-delay:.08s">
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] mb-5">
+        <img src="https://images.unsplash.com/photo-1767636924116-25561d65fa01?q=80&w=800&auto=format&fit=crop" class="journal-img w-full h-full object-cover" alt="Worker at traditional tannery dye vats" />
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-wide text-hide-dark">Origin</span>
+      <h3 class="font-display text-2xl mt-2 leading-snug">What the colour of a dye pit tells a tanner</h3>
+      <p class="text-sm text-ink-soft mt-2 leading-relaxed">A third-generation dye master explains how he reads a vat the way a sommelier reads a glass.</p>
+    </article>
+
+    <article class="journal-card reveal" style="transition-delay:.16s">
+      <div class="rounded-2xl overflow-hidden aspect-[4/3] mb-5">
+        <img src="https://images.unsplash.com/photo-1546450658-04cd1b7dfddf?q=80&w=800&auto=format&fit=crop" class="journal-img w-full h-full object-cover" alt="Person holding a finished leather pouch" />
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-wide text-hide-dark">Design</span>
+      <h3 class="font-display text-2xl mt-2 leading-snug">Why architects are specifying leather again</h3>
+      <p class="text-sm text-ink-soft mt-2 leading-relaxed">Wall panelling, joinery inlay, even flooring — leather's quiet return to commercial interiors.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ LONG-FORM STORY WITH PULL QUOTES ============ -->
+<section id="story-hands" class="bg-cream py-24">
+  <div class="max-w-3xl mx-auto px-6 lg:px-10">
+    <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">Feature</span>
+    <h2 class="font-display text-4xl lg:text-5xl mt-4 leading-tight reveal" style="transition-delay:.05s">The hands that never stopped working</h2>
+    <p class="text-ink-soft mt-8 leading-relaxed reveal" style="transition-delay:.1s">
+      In a converted stable on the edge of a river valley, a tannery that has operated continuously since before either World War still dyes every hide by hand.
+      No automation, no shortcuts — just decades of muscle memory passed from one pair of hands to the next.
+    </p>
+    <blockquote class="pull-quote text-2xl lg:text-3xl leading-snug my-10 pl-6 reveal" style="transition-delay:.15s">
+      You cannot rush a hide. It tells you when it is ready — not the clock, not the order book.
+    </blockquote>
+    <div class="rounded-2xl overflow-hidden aspect-[16/9] my-10 reveal-scale">
+      <img src="https://images.unsplash.com/photo-1777904257871-13b96905467e?q=80&w=1400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Craftsman working at a leather repair stall" />
+    </div>
+    <p class="text-ink-soft leading-relaxed reveal">
+      Terrahide Global partners with fewer than twenty tanneries worldwide, and this is precisely why: scale and soul rarely
+      survive in the same building. Every hide we source can be traced back to a name, a workshop, a specific set of hands —
+      not a factory floor. That traceability isn't a compliance checkbox. It's the entire point.
+    </p>
+    <p class="text-ink-soft leading-relaxed mt-5 reveal">
+      For the makers, designers, and architects who work with our leather, that story travels with the material — into a
+      sofa, a car interior, a bespoke handbag. It's the difference between buying a commodity and commissioning a craft.
+    </p>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER STRIP ============ -->
+<section class="max-w-7xl mx-auto px-6 lg:px-10 py-24">
+  <div class="relative rounded-3xl overflow-hidden bg-ink grain reveal-scale">
+    <div class="absolute -right-10 -top-16 w-72 h-72 rounded-full bg-hide/20 blur-3xl"></div>
+    <div class="relative px-8 py-16 lg:py-20 text-center max-w-xl mx-auto">
+      <span class="text-hide-light uppercase text-xs tracking-[0.3em] font-semibold">Stay in the loop</span>
+      <h2 class="font-display text-white text-3xl lg:text-4xl mt-4 leading-tight">New stories, twice a month</h2>
+      <p class="text-white/60 mt-4">No sales emails — just craftsmanship, heritage, and the occasional tannery visit diary.</p>
+      <form id="trade-form" class="flex flex-col sm:flex-row gap-3 mt-8">
+        <input type="email" required placeholder="Your email address" class="trade-input flex-1 py-3 text-sm text-white" />
+        <button type="submit" class="magnetic btn-hide bg-white text-ink text-sm font-semibold uppercase tracking-wide px-6 py-3 rounded-full whitespace-nowrap">Subscribe</button>
+      </form>
+      <p id="trade-success" class="hidden text-hide-light text-sm mt-3">Thank you for subscribing to the Journal.</p>
     </div>
   </div>
 </section>
@@ -301,9 +269,11 @@
     <div>
       <h4 class="text-white text-sm font-semibold uppercase tracking-wide mb-4">Company</h4>
       <ul class="space-y-2 text-sm">
-                <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
+        <li><a href="tanneries.html" class="hover:text-white transition-colors">Tannery Network</a></li>
         <li><a href="swatches.html" class="hover:text-white transition-colors">Swatch Library</a></li>
-<li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="lookbook.html" class="hover:text-white transition-colors">Lookbook</a></li>
+        <li><a href="journal.html" class="hover:text-white transition-colors">Journal</a></li>
+        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
         <li><a href="environment.html" class="hover:text-white transition-colors">Environment</a></li>
         <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
         <li><a href="showrooms.html" class="hover:text-white transition-colors">Showrooms</a></li>
