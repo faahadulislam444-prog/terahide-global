@@ -348,6 +348,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Contact page: multi-step form with progress
+  const multistep = document.querySelector('[data-multistep-form]');
+  if (multistep) {
+    const steps = Array.from(multistep.querySelectorAll('[data-form-step]'));
+    const fill = document.querySelector('[data-step-fill]');
+    const labels = Array.from(document.querySelectorAll('[data-step-label]'));
+    let current = 1;
+
+    const goTo = (n) => {
+      steps.forEach(s => s.classList.toggle('active', Number(s.dataset.formStep) === n));
+      labels.forEach(l => {
+        const num = Number(l.dataset.stepLabel);
+        l.classList.toggle('active', num === n);
+        l.classList.toggle('done', num < n);
+      });
+      if (fill) fill.style.width = (n / steps.length * 100) + '%';
+      current = n;
+
+      if (n === 3) {
+        const name = multistep.querySelector('[data-step-input="1"][type="text"]');
+        const email = multistep.querySelector('[data-step-input="1"][type="email"]');
+        const enquiry = multistep.querySelector('input[name="enquiry"]:checked');
+        const setReview = (key, val) => {
+          const el = multistep.querySelector(`[data-review="${key}"]`);
+          if (el) el.textContent = val || '—';
+        };
+        setReview('name', name && name.value);
+        setReview('email', email && email.value);
+        setReview('enquiry', enquiry && enquiry.value);
+      }
+    };
+
+    multistep.querySelectorAll('[data-step-next]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const activeStep = steps.find(s => s.classList.contains('active'));
+        const required = activeStep.querySelectorAll('[required]');
+        for (const field of required) {
+          if (!field.value.trim()) { field.reportValidity(); return; }
+        }
+        if (current < steps.length) goTo(current + 1);
+      });
+    });
+    multistep.querySelectorAll('[data-step-prev]').forEach(btn => {
+      btn.addEventListener('click', () => { if (current > 1) goTo(current - 1); });
+    });
+  }
+
+  // Contact page: office-hours live status
+  const officeStatus = document.querySelector('[data-office-status]');
+  if (officeStatus) {
+    const dot = officeStatus.querySelector('[data-status-dot]');
+    const text = officeStatus.querySelector('[data-status-text]');
+    const now = new Date();
+    const sydneyParts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Australia/Sydney', hour: 'numeric', hour12: false, weekday: 'short'
+    }).formatToParts(now);
+    const hour = Number(sydneyParts.find(p => p.type === 'hour').value);
+    const weekday = sydneyParts.find(p => p.type === 'weekday').value;
+    const isWeekday = !['Sat', 'Sun'].includes(weekday);
+    const isOpen = isWeekday && hour >= 8 && hour < 17;
+
+    dot.classList.add(isOpen ? 'is-open' : 'is-closed');
+    if (isOpen) {
+      text.textContent = 'Open now';
+    } else if (isWeekday && hour < 8) {
+      text.textContent = `Opens at 8:30am Sydney time`;
+    } else {
+      text.textContent = 'Currently closed';
+    }
+  }
+
+  // Contact page: quick-question widget
+  const quickChat = document.querySelector('[data-quick-chat]');
+  if (quickChat) {
+    const trigger = quickChat.querySelector('[data-quick-chat-trigger]');
+    const closeBtn = quickChat.querySelector('[data-quick-chat-close]');
+    trigger.addEventListener('click', () => quickChat.classList.toggle('is-open'));
+    closeBtn.addEventListener('click', () => quickChat.classList.remove('is-open'));
+    document.addEventListener('click', (e) => {
+      if (quickChat.classList.contains('is-open') && !quickChat.contains(e.target)) {
+        quickChat.classList.remove('is-open');
+      }
+    });
+  }
+
   // Sample swatch "add to samples" micro-interaction
   document.querySelectorAll('[data-sample-btn]').forEach(btn => {
     btn.addEventListener('click', () => {

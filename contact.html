@@ -150,6 +150,12 @@
     <span class="text-hide-dark uppercase text-xs tracking-[0.3em] font-semibold reveal">Contact Us</span>
     <h1 class="font-display text-5xl lg:text-6xl mt-4 reveal" style="transition-delay:.08s">Let's talk leather</h1>
     <p class="text-ink-soft max-w-xl mx-auto mt-5 reveal" style="transition-delay:.16s">Samples, bulk orders, or tannery partnerships — our team responds within one business day.</p>
+
+    <div class="inline-flex items-center gap-2 mt-8 reveal" style="transition-delay:.24s" data-office-status>
+      <span class="status-dot" data-status-dot></span>
+      <span class="text-xs font-semibold uppercase tracking-wide" data-status-text>Checking office hours…</span>
+      <span class="text-ink-soft text-xs">&middot; Avg. response time 4 hours</span>
+    </div>
   </div>
 </section>
 
@@ -159,51 +165,124 @@
 
     <!-- Form -->
     <div class="lg:col-span-3 bg-white border border-line rounded-3xl p-8 lg:p-10 reveal-left">
-      <h2 class="font-display text-2xl mb-6">Send us a message</h2>
+
+      <!-- Step progress -->
+      <div class="step-progress mb-8" data-step-progress>
+        <div class="step-track">
+          <div class="step-track-fill" data-step-fill></div>
+        </div>
+        <div class="step-labels">
+          <span class="step-label active" data-step-label="1"><span class="step-num">1</span>Your details</span>
+          <span class="step-label" data-step-label="2"><span class="step-num">2</span>Your enquiry</span>
+          <span class="step-label" data-step-label="3"><span class="step-num">3</span>Review &amp; send</span>
+        </div>
+      </div>
 
       <div id="form-success" class="hidden mb-6 bg-hide/10 border border-hide/30 text-hide-dark rounded-xl px-5 py-4 text-sm font-medium">
         Thanks — your message has been sent. Our team will be in touch shortly.
       </div>
 
-      <form id="contact-form" class="space-y-5">
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Full Name</label>
-            <input required type="text" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Jane Smith" />
+      <form id="contact-form" data-multistep-form>
+
+        <!-- Step 1: who you are -->
+        <div class="form-step active" data-form-step="1">
+          <h2 class="font-display text-2xl mb-6">Tell us who you are</h2>
+          <div class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Full Name</label>
+                <input required data-step-input="1" type="text" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Jane Smith" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Company</label>
+                <input type="text" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Studio / Company name" />
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Email</label>
+                <input required data-step-input="1" type="email" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="jane@studio.com" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Phone</label>
+                <input type="tel" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="+61 4XX XXX XXX" />
+              </div>
+            </div>
           </div>
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Company</label>
-            <input type="text" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Studio / Company name" />
+          <div class="flex justify-end mt-8">
+            <button type="button" data-step-next class="btn-hide inline-flex items-center justify-center gap-2 bg-ink text-white text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full">
+              Continue
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
           </div>
         </div>
-        <div class="grid sm:grid-cols-2 gap-5">
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Email</label>
-            <input required type="email" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="jane@studio.com" />
+
+        <!-- Step 2: enquiry type -->
+        <div class="form-step" data-form-step="2">
+          <h2 class="font-display text-2xl mb-6">What can we help with?</h2>
+          <div class="enquiry-grid">
+            <label class="enquiry-card">
+              <input type="radio" name="enquiry" value="Sample Request" checked />
+              <span class="enquiry-icon">◧</span>
+              <span class="enquiry-name">Sample Request</span>
+            </label>
+            <label class="enquiry-card">
+              <input type="radio" name="enquiry" value="Bulk / Wholesale Pricing" />
+              <span class="enquiry-icon">▤</span>
+              <span class="enquiry-name">Bulk / Wholesale</span>
+            </label>
+            <label class="enquiry-card">
+              <input type="radio" name="enquiry" value="Tannery Partnership" />
+              <span class="enquiry-icon">⛛</span>
+              <span class="enquiry-name">Tannery Partnership</span>
+            </label>
+            <label class="enquiry-card">
+              <input type="radio" name="enquiry" value="Project Consultation" />
+              <span class="enquiry-icon">◈</span>
+              <span class="enquiry-name">Project Consultation</span>
+            </label>
+            <label class="enquiry-card">
+              <input type="radio" name="enquiry" value="General Enquiry" />
+              <span class="enquiry-icon">◌</span>
+              <span class="enquiry-name">General Enquiry</span>
+            </label>
           </div>
-          <div>
-            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Phone</label>
-            <input type="tel" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="+61 4XX XXX XXX" />
+          <div class="flex justify-between mt-8">
+            <button type="button" data-step-prev class="inline-flex items-center justify-center gap-2 border border-line text-ink text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full hover:border-hide transition-colors">
+              Back
+            </button>
+            <button type="button" data-step-next class="btn-hide inline-flex items-center justify-center gap-2 bg-ink text-white text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full">
+              Continue
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
           </div>
         </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Enquiry Type</label>
-          <select class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all bg-white">
-            <option>Sample Request</option>
-            <option>Bulk / Wholesale Pricing</option>
-            <option>Tannery Partnership</option>
-            <option>Project Consultation</option>
-            <option>General Enquiry</option>
-          </select>
+
+        <!-- Step 3: message + review -->
+        <div class="form-step" data-form-step="3">
+          <h2 class="font-display text-2xl mb-6">Add your message</h2>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Message</label>
+            <textarea rows="5" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Tell us about your project or requirements..."></textarea>
+          </div>
+
+          <div class="review-card mt-6">
+            <p class="review-title">Before you send</p>
+            <div class="review-row"><span>Name</span><strong data-review="name">—</strong></div>
+            <div class="review-row"><span>Email</span><strong data-review="email">—</strong></div>
+            <div class="review-row"><span>Enquiry</span><strong data-review="enquiry">—</strong></div>
+          </div>
+
+          <div class="flex justify-between mt-8">
+            <button type="button" data-step-prev class="inline-flex items-center justify-center gap-2 border border-line text-ink text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full hover:border-hide transition-colors">
+              Back
+            </button>
+            <button type="submit" class="btn-hide inline-flex items-center justify-center gap-2 bg-ink text-white text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full">
+              Send Message
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+          </div>
         </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wide text-ink-soft mb-2">Message</label>
-          <textarea rows="5" class="w-full border border-line rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-hide/40 focus:border-hide transition-all" placeholder="Tell us about your project or requirements..."></textarea>
-        </div>
-        <button type="submit" class="btn-hide w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ink text-white text-sm font-semibold uppercase tracking-wide px-8 py-4 rounded-full">
-          Send Message
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </button>
       </form>
     </div>
 
@@ -329,6 +408,30 @@
 <button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-xl hover:bg-hide transition-colors">
   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
 </button>
+
+<!-- Quick-question widget -->
+<div class="quick-chat" data-quick-chat>
+  <div class="quick-chat-panel" data-quick-chat-panel>
+    <div class="quick-chat-head">
+      <p class="font-display text-lg">Quick question?</p>
+      <button class="quick-chat-close" data-quick-chat-close aria-label="Close">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <p class="text-sm text-ink-soft mt-1 mb-5">Skip the form — reach our team directly. Usual reply within a few hours during business hours.</p>
+    <a href="https://wa.me/61293553600" target="_blank" rel="noopener" class="quick-chat-link">
+      <span class="quick-chat-link-icon">✆</span>
+      <span><span class="block font-semibold text-sm">WhatsApp</span><span class="block text-xs text-ink-soft">+61 2 9355 3600</span></span>
+    </a>
+    <a href="mailto:info@terrahideglobal.com" class="quick-chat-link">
+      <span class="quick-chat-link-icon">✉</span>
+      <span><span class="block font-semibold text-sm">Email</span><span class="block text-xs text-ink-soft">info@terrahideglobal.com</span></span>
+    </a>
+  </div>
+  <button class="quick-chat-trigger" data-quick-chat-trigger aria-haspopup="dialog">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8-1.06 0-2.077-.16-3.02-.457L3 21l1.5-4.5C3.55 15.15 3 13.63 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z"/></svg>
+  </button>
+</div>
 
 <script src="assets/js/site.js"></script>
 </body>
