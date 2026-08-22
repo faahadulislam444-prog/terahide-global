@@ -155,76 +155,92 @@
 </section>
 
 <!-- Animated route map -->
-<section class="max-w-7xl mx-auto px-6 lg:px-10 pb-10">
-  <div class="relative rounded-3xl overflow-hidden bg-ink grain reveal-scale" style="aspect-ratio: 16/8;">
-    <svg viewBox="0 0 1000 500" class="w-full h-full" preserveAspectRatio="xMidYMid meet">
-      <!-- faint world grid -->
-      <g stroke="#ffffff10" stroke-width="1">
-        <line x1="0" y1="100" x2="1000" y2="100"/>
-        <line x1="0" y1="200" x2="1000" y2="200"/>
-        <line x1="0" y1="300" x2="1000" y2="300"/>
-        <line x1="0" y1="400" x2="1000" y2="400"/>
-        <line x1="125" y1="0" x2="125" y2="500"/>
-        <line x1="250" y1="0" x2="250" y2="500"/>
-        <line x1="375" y1="0" x2="375" y2="500"/>
-        <line x1="500" y1="0" x2="500" y2="500"/>
-        <line x1="625" y1="0" x2="625" y2="500"/>
-        <line x1="750" y1="0" x2="750" y2="500"/>
-        <line x1="875" y1="0" x2="875" y2="500"/>
-      </g>
+<section class="max-w-7xl mx-auto px-6 lg:px-10 pb-10" data-origin-map>
+  <div class="map-shell grid lg:grid-cols-12 reveal-scale">
+    <!-- Map -->
+    <div class="lg:col-span-8 relative p-6 lg:p-8">
+      <svg viewBox="0 0 1000 480" class="w-full h-auto" preserveAspectRatio="xMidYMid meet" role="img" aria-label="World map of Terrahide sourcing regions">
+        <!-- Simplified continent outlines -->
+        <g class="map-land">
+          <!-- North America -->
+          <path d="M60 70 L200 52 L268 86 L250 140 L214 158 L196 208 L160 232 L140 196 L104 168 L74 120 Z"/>
+          <!-- South America -->
+          <path d="M228 252 L280 242 L302 288 L292 352 L258 410 L228 396 L216 334 L214 288 Z"/>
+          <!-- Europe -->
+          <path d="M456 74 L536 62 L566 88 L556 124 L520 142 L482 132 L458 106 Z"/>
+          <!-- Africa -->
+          <path d="M470 158 L560 150 L590 196 L578 268 L534 344 L496 336 L470 268 L458 206 Z"/>
+          <!-- Asia -->
+          <path d="M580 60 L760 48 L860 84 L880 140 L820 178 L742 168 L666 186 L606 154 L580 108 Z"/>
+          <!-- India -->
+          <path d="M666 186 L716 182 L724 226 L694 258 L668 224 Z"/>
+          <!-- Australia -->
+          <path d="M790 300 L872 292 L900 330 L878 380 L816 386 L788 348 Z"/>
+        </g>
 
-      <!-- routes from HQ (Sydney, approx 830,400) to tannery regions -->
-      <path class="route-path" d="M 830 380 Q 650 250 260 200" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.7"/>
-      <path class="route-path" d="M 830 380 Q 700 300 470 230" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.7" style="animation-delay:.3s"/>
-      <path class="route-path" d="M 830 380 Q 750 340 640 180" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.7" style="animation-delay:.6s"/>
-      <path class="route-path" d="M 830 380 Q 780 250 540 120" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.7" style="animation-delay:.9s"/>
+        <!-- Routes from each region to the Sydney hub (843, 340) -->
+        <path class="map-arc" d="M256 322 Q 560 470 843 340"/>
+        <path class="map-arc" d="M510 104 Q 700 180 843 340" style="animation-delay:.25s"/>
+        <path class="map-arc" d="M520 210 Q 700 240 843 340" style="animation-delay:.5s"/>
+        <path class="map-arc" d="M696 220 Q 790 250 843 340" style="animation-delay:.75s"/>
 
-      <!-- HQ pin -->
-      <g class="route-dot" transform="translate(830,380)">
-        <circle r="7" fill="#7B2D3B"/>
-        <circle r="7" fill="none" stroke="#C9A227" stroke-width="1.5"/>
-      </g>
-      <!-- Region pins -->
-      <g class="route-dot" transform="translate(260,200)" style="transition-delay:.4s">
-        <circle r="6" fill="#F7F4EF"/>
-      </g>
-      <g class="route-dot" transform="translate(470,230)" style="transition-delay:.6s">
-        <circle r="6" fill="#F7F4EF"/>
-      </g>
-      <g class="route-dot" transform="translate(640,180)" style="transition-delay:.8s">
-        <circle r="6" fill="#F7F4EF"/>
-      </g>
-      <g class="route-dot" transform="translate(540,120)" style="transition-delay:1s">
-        <circle r="6" fill="#F7F4EF"/>
-      </g>
-    </svg>
+        <!-- Region nodes -->
+        <g class="map-node" data-region-node="south-america" transform="translate(256,322)">
+          <circle class="node-halo" r="6"/><circle class="node-core" r="5"/>
+        </g>
+        <g class="map-node" data-region-node="europe" transform="translate(510,104)">
+          <circle class="node-halo" r="6"/><circle class="node-core" r="5"/>
+        </g>
+        <g class="map-node" data-region-node="africa" transform="translate(520,210)">
+          <circle class="node-halo" r="6"/><circle class="node-core" r="5"/>
+        </g>
+        <g class="map-node" data-region-node="asia" transform="translate(696,220)">
+          <circle class="node-halo" r="6"/><circle class="node-core" r="5"/>
+        </g>
 
-    <!-- Labels overlaid responsively -->
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute" style="left:26%; top:38%;">
-        <div class="relative w-3 h-3">
-          <span class="pulse-ring"></span>
-        </div>
-        <span class="block mt-2 text-white text-xs font-semibold bg-ink/70 backdrop-blur px-2 py-1 rounded-md -translate-x-1/2">South America</span>
+        <!-- Sydney hub -->
+        <g class="map-node map-hub" transform="translate(843,340)">
+          <circle class="node-halo" r="7"/><circle class="node-core" r="6"/>
+          <text x="14" y="5" fill="#F7F4EF" font-size="12" letter-spacing="1.4">SYDNEY HUB</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Region list -->
+    <div class="lg:col-span-4 p-6 lg:p-8 lg:pl-0 flex flex-col justify-center">
+      <p class="text-[10px] uppercase tracking-[0.22em] text-hide-light font-semibold mb-3">Sourcing Regions</p>
+
+      <div class="region-row active" data-region-row="south-america">
+        <span class="region-idx">01</span>
+        <span>South America
+          <span class="region-sub">Full-grain &amp; marine grades</span>
+        </span>
+        <span class="region-count">6 tanneries</span>
       </div>
-      <div class="absolute" style="left:47%; top:44%;">
-        <div class="relative w-3 h-3"><span class="pulse-ring"></span></div>
-        <span class="block mt-2 text-white text-xs font-semibold bg-ink/70 backdrop-blur px-2 py-1 rounded-md -translate-x-1/2">Southern Europe</span>
+      <div class="region-row" data-region-row="europe">
+        <span class="region-idx">02</span>
+        <span>Southern Europe
+          <span class="region-sub">Vegetable-tanned craft &amp; belting</span>
+        </span>
+        <span class="region-count">5 tanneries</span>
       </div>
-      <div class="absolute" style="left:64%; top:34%;">
-        <div class="relative w-3 h-3"><span class="pulse-ring"></span></div>
-        <span class="block mt-2 text-white text-xs font-semibold bg-ink/70 backdrop-blur px-2 py-1 rounded-md -translate-x-1/2">North Africa</span>
+      <div class="region-row" data-region-row="africa">
+        <span class="region-idx">03</span>
+        <span>North Africa
+          <span class="region-sub">Traditional pit-dyed hides</span>
+        </span>
+        <span class="region-count">3 tanneries</span>
       </div>
-      <div class="absolute" style="left:54%; top:22%;">
-        <div class="relative w-3 h-3"><span class="pulse-ring"></span></div>
-        <span class="block mt-2 text-white text-xs font-semibold bg-ink/70 backdrop-blur px-2 py-1 rounded-md -translate-x-1/2">South Asia</span>
-      </div>
-      <div class="absolute" style="left:83%; top:74%;">
-        <span class="block text-hide-light text-xs font-bold bg-white/10 backdrop-blur px-2 py-1 rounded-md -translate-x-1/2">Terrahide HQ</span>
+      <div class="region-row" data-region-row="asia" style="border-bottom:none;">
+        <span class="region-idx">04</span>
+        <span>South Asia
+          <span class="region-sub">High-volume strap &amp; leathergoods</span>
+        </span>
+        <span class="region-count">4 tanneries</span>
       </div>
     </div>
   </div>
-  <p class="text-center text-xs text-ink-soft mt-4 uppercase tracking-wide">Live sourcing routes · Updated quarterly</p>
+  <p class="text-center text-xs text-ink-soft mt-6 uppercase tracking-wide">Live sourcing routes · Updated quarterly</p>
 </section>
 
 <!-- Region filter -->
