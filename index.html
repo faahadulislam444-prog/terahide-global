@@ -475,79 +475,151 @@
 </section>
 
 <!-- ============ LEATHER GRADES (comparison cards) ============ -->
-<section class="bg-cream pattern-geometric py-24">
+<section class="bg-cream pattern-geometric py-24 overflow-hidden">
   <div class="max-w-6xl mx-auto px-6 lg:px-10">
-    <div class="text-center mb-4 reveal">
-      <span class="eyebrow">Know Your Grade</span>
-      <h2 class="font-display text-4xl lg:text-5xl mt-4">Choosing the right leather grade</h2>
-      <p class="text-ink-soft max-w-lg mx-auto mt-4">Three cuts from the same hide — each with a different surface, lifespan, and purpose.</p>
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-4 reveal">
+      <div>
+        <span class="eyebrow">Know Your Grade</span>
+        <h2 class="font-display text-4xl lg:text-5xl mt-4">Choosing the right leather grade</h2>
+        <p class="text-ink-soft max-w-lg mt-4">Six cuts and finishes from the same hide — each with a different surface, lifespan, and purpose.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button data-grade-prev class="w-11 h-11 rounded-full border border-line flex items-center justify-center hover:bg-ink hover:text-white hover:border-ink transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button data-grade-next class="w-11 h-11 rounded-full border border-line flex items-center justify-center hover:bg-ink hover:text-white hover:border-ink transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="rule-gold max-w-md mx-auto mb-12 reveal"></div>
+  </div>
+  <div class="rule-gold max-w-md mx-auto mb-12 reveal"></div>
 
-    <div class="grid md:grid-cols-3 gap-6 reveal-stagger">
+  <div class="grade-scroller" data-grade-track>
 
-      <!-- Full-grain (featured) -->
-      <article class="grade-card featured">
-        <span class="grade-badge">Our Signature</span>
-        <div class="grade-swatch">
-          <img src="https://images.unsplash.com/photo-1716295177956-420a647c83ac?q=80&w=700&auto=format&fit=crop" alt="Close-up of full-grain leather showing natural grain" />
-        </div>
-        <p class="text-[10px] uppercase tracking-[0.2em] text-hide-light font-semibold">Tier 01</p>
-        <h3 class="grade-name text-3xl mt-2">Full-Grain</h3>
-        <p class="text-sm mt-3 leading-relaxed" style="color:rgba(247,244,239,.62)">The outermost layer, left uncorrected. Every scar and crease stays — and it only looks better with age.</p>
+    <!-- Full-grain (featured) -->
+    <article class="grade-card featured">
+      <span class="grade-badge">Our Signature</span>
+      <div class="grade-swatch">
+        <img src="https://images.unsplash.com/photo-1716295177956-420a647c83ac?q=80&w=700&auto=format&fit=crop" alt="Close-up of full-grain leather showing natural grain" />
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.2em] text-hide-light font-semibold">Tier 01</p>
+      <h3 class="grade-name text-3xl mt-2">Full-Grain</h3>
+      <p class="text-sm mt-3 leading-relaxed" style="color:rgba(247,244,239,.62)">The outermost layer, left uncorrected. Every scar and crease stays — and it only looks better with age.</p>
 
-        <div class="mt-6">
-          <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-yes">Yes</span></div>
-          <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-yes">Yes</span></div>
-          <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-no">—</span></div>
-          <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">20–30 yrs</span></div>
-          <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Premium</span></div>
-        </div>
+      <div class="mt-6">
+        <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">20–30 yrs</span></div>
+        <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Premium</span></div>
+      </div>
 
-        <p class="text-[11px] uppercase tracking-[0.14em] mt-6" style="color:rgba(247,244,239,.45)">Best for · Upholstery, small goods</p>
-      </article>
+      <p class="text-[11px] uppercase tracking-[0.14em] mt-6" style="color:rgba(247,244,239,.45)">Best for · Upholstery, small goods</p>
+    </article>
 
-      <!-- Top-grain -->
-      <article class="grade-card">
-        <div class="grade-swatch">
-          <img src="https://images.unsplash.com/photo-1775848366579-3178bc69115c?q=80&w=700&auto=format&fit=crop" alt="Perforated top-grain leather with contrast stitching" />
-        </div>
-        <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 02</p>
-        <h3 class="grade-name text-3xl mt-2">Top-Grain</h3>
-        <p class="text-sm text-ink-soft mt-3 leading-relaxed">Lightly sanded and sealed for a uniform finish. Consistent colour across large runs, easier to clean.</p>
+    <!-- Top-grain -->
+    <article class="grade-card">
+      <div class="grade-swatch">
+        <img src="https://images.unsplash.com/photo-1775848366579-3178bc69115c?q=80&w=700&auto=format&fit=crop" alt="Perforated top-grain leather with contrast stitching" />
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 02</p>
+      <h3 class="grade-name text-3xl mt-2">Top-Grain</h3>
+      <p class="text-sm text-ink-soft mt-3 leading-relaxed">Lightly sanded and sealed for a uniform finish. Consistent colour across large runs, easier to clean.</p>
 
-        <div class="mt-6">
-          <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-no">—</span></div>
-          <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-no">—</span></div>
-          <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-yes">Yes</span></div>
-          <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">10–20 yrs</span></div>
-          <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Mid</span></div>
-        </div>
+      <div class="mt-6">
+        <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">10–20 yrs</span></div>
+        <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Mid</span></div>
+      </div>
 
-        <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Automotive, bags</p>
-      </article>
+      <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Automotive, bags</p>
+    </article>
 
-      <!-- Split suede -->
-      <article class="grade-card">
-        <div class="grade-swatch">
-          <img src="https://images.unsplash.com/photo-1745305899771-efa66647787d?q=80&w=700&auto=format&fit=crop" alt="Soft matte split suede leather surface" />
-        </div>
-        <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 03</p>
-        <h3 class="grade-name text-3xl mt-2">Split Suede</h3>
-        <p class="text-sm text-ink-soft mt-3 leading-relaxed">The lower layer, buffed to a soft nap. Light, pliable, and the most economical cut of the hide.</p>
+    <!-- Nubuck -->
+    <article class="grade-card">
+      <div class="grade-swatch">
+        <img src="https://plus.unsplash.com/premium_photo-1759432613877-dffb4d797b74?q=80&w=700&auto=format&fit=crop" alt="Close-up of textured brown suede fabric folds" />
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 03</p>
+      <h3 class="grade-name text-3xl mt-2">Nubuck</h3>
+      <p class="text-sm text-ink-soft mt-3 leading-relaxed">Top-grain buffed from the outside for a velvety, brushed-suede hand-feel with a much tougher backbone.</p>
 
-        <div class="mt-6">
-          <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-no">—</span></div>
-          <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-no">—</span></div>
-          <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-yes">Yes</span></div>
-          <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">5–12 yrs</span></div>
-          <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Value</span></div>
-        </div>
+      <div class="mt-6">
+        <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">10–18 yrs</span></div>
+        <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Mid</span></div>
+      </div>
 
-        <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Craft, linings</p>
-      </article>
-    </div>
+      <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Footwear, jackets</p>
+    </article>
 
+    <!-- Nappa -->
+    <article class="grade-card">
+      <div class="grade-swatch">
+        <img src="https://images.unsplash.com/photo-1755541608110-3440a0f168ed?q=80&w=700&auto=format&fit=crop" alt="Dark brown textured leather surface" />
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 04</p>
+      <h3 class="grade-name text-3xl mt-2">Nappa</h3>
+      <p class="text-sm text-ink-soft mt-3 leading-relaxed">Drum-dyed full-grain, tanned soft and supple. The pick for anything worn close to the body.</p>
+
+      <div class="mt-6">
+        <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">12–20 yrs</span></div>
+        <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Premium</span></div>
+      </div>
+
+      <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Gloves, garments</p>
+    </article>
+
+    <!-- Pull-up -->
+    <article class="grade-card">
+      <div class="grade-swatch">
+        <img src="https://plus.unsplash.com/premium_photo-1744537524860-ddd85fdd19be?q=80&w=700&auto=format&fit=crop" alt="Close-up of dark burgundy leather texture with a pebbled grain" />
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 05</p>
+      <h3 class="grade-name text-3xl mt-2">Pull-Up</h3>
+      <p class="text-sm text-ink-soft mt-3 leading-relaxed">Oil- and wax-loaded full-grain that lightens visibly wherever it's flexed or pulled — worn-in from day one.</p>
+
+      <div class="mt-6">
+        <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">15–25 yrs</span></div>
+        <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Premium</span></div>
+      </div>
+
+      <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Boots, work bags</p>
+    </article>
+
+    <!-- Split suede -->
+    <article class="grade-card">
+      <div class="grade-swatch">
+        <img src="https://images.unsplash.com/photo-1745305899771-efa66647787d?q=80&w=700&auto=format&fit=crop" alt="Soft matte split suede leather surface" />
+      </div>
+      <p class="text-[10px] uppercase tracking-[0.2em] text-hide font-semibold">Tier 06</p>
+      <h3 class="grade-name text-3xl mt-2">Split Suede</h3>
+      <p class="text-sm text-ink-soft mt-3 leading-relaxed">The lower layer, buffed to a soft nap. Light, pliable, and the most economical cut of the hide.</p>
+
+      <div class="mt-6">
+        <div class="grade-spec grade-line"><span>Natural grain visible</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Develops patina</span><span class="grade-no">—</span></div>
+        <div class="grade-spec grade-line"><span>Corrected surface</span><span class="grade-yes">Yes</span></div>
+        <div class="grade-spec grade-line"><span>Expected lifespan</span><span class="grade-yes">5–12 yrs</span></div>
+        <div class="grade-spec"><span>Price tier</span><span class="grade-yes">Value</span></div>
+      </div>
+
+      <p class="text-[11px] uppercase tracking-[0.14em] text-ink-soft/70 mt-6">Best for · Craft, linings</p>
+    </article>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-10">
     <p class="text-center text-sm text-ink-soft mt-10 reveal">Not sure which grade fits your project? <a href="contact.html" class="link-underline text-hide font-semibold">Talk to our team →</a></p>
   </div>
 </section>

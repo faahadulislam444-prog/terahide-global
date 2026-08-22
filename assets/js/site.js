@@ -194,6 +194,16 @@ document.addEventListener('DOMContentLoaded', () => {
     idxNext && idxNext.addEventListener('click', () => idxTrack.scrollBy({ left: idxStep(), behavior: 'smooth' }));
   }
 
+  // Leather grades comparison scroller (prev/next buttons)
+  const gradeTrack = document.querySelector('[data-grade-track]');
+  if (gradeTrack) {
+    const gradePrev = document.querySelector('[data-grade-prev]');
+    const gradeNext = document.querySelector('[data-grade-next]');
+    const gradeStep = () => gradeTrack.querySelector('.grade-card').offsetWidth + 24;
+    gradePrev && gradePrev.addEventListener('click', () => gradeTrack.scrollBy({ left: -gradeStep(), behavior: 'smooth' }));
+    gradeNext && gradeNext.addEventListener('click', () => gradeTrack.scrollBy({ left: gradeStep(), behavior: 'smooth' }));
+  }
+
   // Simple lightweight carousel (Showrooms / gallery strips)
   document.querySelectorAll('[data-carousel]').forEach(car => {
     const track = car.querySelector('[data-track]');
