@@ -194,14 +194,60 @@ document.addEventListener('DOMContentLoaded', () => {
     idxNext && idxNext.addEventListener('click', () => idxTrack.scrollBy({ left: idxStep(), behavior: 'smooth' }));
   }
 
-  // Leather grades comparison scroller (prev/next buttons)
-  const gradeTrack = document.querySelector('[data-grade-track]');
-  if (gradeTrack) {
-    const gradePrev = document.querySelector('[data-grade-prev]');
-    const gradeNext = document.querySelector('[data-grade-next]');
-    const gradeStep = () => gradeTrack.querySelector('.grade-card').offsetWidth + 24;
-    gradePrev && gradePrev.addEventListener('click', () => gradeTrack.scrollBy({ left: -gradeStep(), behavior: 'smooth' }));
-    gradeNext && gradeNext.addEventListener('click', () => gradeTrack.scrollBy({ left: gradeStep(), behavior: 'smooth' }));
+  // Leather grades: vertical stacked reveal
+  const gradeStack = document.querySelector('[data-grade-stack]');
+  if (gradeStack) {
+    const data = JSON.parse(gradeStack.querySelector('[data-grade-data]').textContent);
+    const rows = Array.from(gradeStack.querySelectorAll('[data-grade-trigger]'));
+    const img = gradeStack.querySelector('[data-grade-img]');
+    const body = gradeStack.querySelector('.grade-panel-body');
+    const tierEl = gradeStack.querySelector('[data-grade-tier]');
+    const titleEl = gradeStack.querySelector('[data-grade-title]');
+    const descEl = gradeStack.querySelector('[data-grade-desc]');
+    const specsEl = gradeStack.querySelector('[data-grade-specs]');
+
+    const renderSpecs = (specs, best) => {
+      const rowsHtml = specs.map(([label, value, positive]) =>
+        `<div class="gp-spec"><span>${label}</span><strong${positive ? '' : ' class="gp-no"'}>${value}</strong></div>`
+      ).join('');
+      specsEl.innerHTML = rowsHtml + `<div class="gp-spec"><span>Best for</span><strong>${best}</strong></div>`;
+    };
+
+    let activeIdx = 0;
+    let pendingIdx = 0;
+    let swapTimer = null;
+    const select = (idx) => {
+      if (idx === activeIdx) return;
+      activeIdx = idx;
+      pendingIdx = idx;
+      const d = data[idx];
+
+      rows.forEach((r, i) => {
+        r.classList.toggle('is-active', i === idx);
+        r.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+
+      body.classList.add('is-fading');
+      img.classList.remove('is-shown');
+
+      if (swapTimer) clearTimeout(swapTimer);
+      swapTimer = setTimeout(() => {
+        const myIdx = idx;
+        img.onload = () => { if (pendingIdx === myIdx) img.classList.add('is-shown'); };
+        img.src = d.img;
+        img.alt = d.alt;
+        tierEl.textContent = d.tier;
+        titleEl.textContent = d.name;
+        descEl.textContent = d.desc;
+        renderSpecs(d.specs, d.best);
+        body.classList.remove('is-fading');
+        if (img.complete) img.classList.add('is-shown');
+      }, 220);
+    };
+
+    rows.forEach((row, i) => row.addEventListener('click', () => select(i)));
+    img.addEventListener('load', () => img.classList.add('is-shown'), { once: true });
+    requestAnimationFrame(() => img.classList.add('is-shown'));
   }
 
   // Simple lightweight carousel (Showrooms / gallery strips)
