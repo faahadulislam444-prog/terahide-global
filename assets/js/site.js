@@ -184,82 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Draggable filmstrip (workshop floor gallery) — drag with momentum, center frame gets focus
-  document.querySelectorAll('[data-filmstrip]').forEach(stage => {
-    const track = stage.querySelector('[data-filmstrip-track]');
-    const frames = Array.from(stage.querySelectorAll('[data-frame]'));
-    if (!track || !frames.length) return;
-
-    let isDown = false, startX = 0, scrollStart = 0, velocity = 0, lastX = 0, lastT = 0, momentumRAF = null;
-
-    const updateCenter = () => {
-      const stageRect = stage.getBoundingClientRect();
-      const center = stageRect.left + stageRect.width / 2;
-      let closest = null, closestDist = Infinity;
-      frames.forEach(f => {
-        const r = f.getBoundingClientRect();
-        const dist = Math.abs((r.left + r.width / 2) - center);
-        if (dist < closestDist) { closestDist = dist; closest = f; }
-      });
-      frames.forEach(f => f.classList.toggle('is-center', f === closest));
-    };
-
-    const stopMomentum = () => { if (momentumRAF) cancelAnimationFrame(momentumRAF); momentumRAF = null; };
-
-    const glide = () => {
-      if (Math.abs(velocity) < 0.05) { stopMomentum(); updateCenter(); return; }
-      track.scrollLeft -= velocity;
-      velocity *= 0.93;
-      updateCenter();
-      momentumRAF = requestAnimationFrame(glide);
-    };
-
-    const onDown = (clientX) => {
-      stopMomentum();
-      isDown = true;
-      startX = clientX;
-      scrollStart = track.scrollLeft;
-      lastX = clientX;
-      lastT = performance.now();
-      velocity = 0;
-      track.classList.add('dragging');
-    };
-    const onMove = (clientX) => {
-      if (!isDown) return;
-      const dx = clientX - startX;
-      track.scrollLeft = scrollStart - dx;
-      const now = performance.now();
-      const dt = now - lastT || 16;
-      velocity = (clientX - lastX) / dt * 16;
-      lastX = clientX;
-      lastT = now;
-      updateCenter();
-    };
-    const onUp = () => {
-      if (!isDown) return;
-      isDown = false;
-      track.classList.remove('dragging');
-      momentumRAF = requestAnimationFrame(glide);
-    };
-
-    track.addEventListener('mousedown', (e) => { e.preventDefault(); onDown(e.clientX); });
-    window.addEventListener('mousemove', (e) => onMove(e.clientX));
-    window.addEventListener('mouseup', onUp);
-
-    track.addEventListener('touchstart', (e) => onDown(e.touches[0].clientX), { passive: true });
-    track.addEventListener('touchmove', (e) => onMove(e.touches[0].clientX), { passive: true });
-    track.addEventListener('touchend', onUp);
-
-    track.addEventListener('scroll', () => { if (!isDown && !momentumRAF) updateCenter(); }, { passive: true });
-
-    // Center the middle frame on load
-    requestAnimationFrame(() => {
-      const mid = frames[Math.floor(frames.length / 2)];
-      const stageRect = stage.getBoundingClientRect();
-      track.scrollLeft = mid.offsetLeft - (stageRect.width / 2) + (mid.offsetWidth / 2);
-      updateCenter();
-    });
-  });
+  // Workshop-floor index scroller (prev/next buttons)
+  const idxTrack = document.querySelector('[data-idx-track]');
+  if (idxTrack) {
+    const idxPrev = document.querySelector('[data-idx-prev]');
+    const idxNext = document.querySelector('[data-idx-next]');
+    const idxStep = () => idxTrack.querySelector('.idx-item').offsetWidth;
+    idxPrev && idxPrev.addEventListener('click', () => idxTrack.scrollBy({ left: -idxStep(), behavior: 'smooth' }));
+    idxNext && idxNext.addEventListener('click', () => idxTrack.scrollBy({ left: idxStep(), behavior: 'smooth' }));
+  }
 
   // Simple lightweight carousel (Showrooms / gallery strips)
   document.querySelectorAll('[data-carousel]').forEach(car => {
