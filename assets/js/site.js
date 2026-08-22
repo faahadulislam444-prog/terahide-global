@@ -250,6 +250,54 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => img.classList.add('is-shown'));
   }
 
+  // Certifications: audit-ledger timeline
+  const ledger = document.querySelector('[data-ledger]');
+  if (ledger) {
+    const ledgerData = JSON.parse(document.querySelector('[data-ledger-data]').textContent);
+    const triggers = Array.from(ledger.querySelectorAll('[data-ledger-trigger]'));
+    const record = document.querySelector('[data-ledger-record]');
+    const recordInner = document.querySelector('[data-ledger-record-inner]');
+
+    const renderRecord = (d) => {
+      recordInner.innerHTML = `
+        <p class="ledger-record-covers">${d.covers}</p>
+        <div class="ledger-record-meta">
+          <div><span>Audited by</span><strong>${d.auditor}</strong></div>
+          <div><span>Last audit</span><strong>${d.last}</strong></div>
+          <div><span>Next renewal</span><strong>${d.next}</strong></div>
+          <div><span>Scope</span><strong>${d.scope}</strong></div>
+        </div>`;
+    };
+
+    const openRecord = (idx) => {
+      renderRecord(ledgerData[idx]);
+      record.style.maxHeight = recordInner.scrollHeight + 60 + 'px';
+      record.classList.add('is-open');
+    };
+
+    let activeIdx = 0;
+    triggers.forEach((trigger, i) => {
+      trigger.addEventListener('click', () => {
+        if (i === activeIdx) {
+          const isOpen = record.classList.contains('is-open');
+          record.classList.toggle('is-open', !isOpen);
+          record.style.maxHeight = isOpen ? '0px' : recordInner.scrollHeight + 60 + 'px';
+          trigger.classList.toggle('is-open', !isOpen);
+          return;
+        }
+        triggers.forEach((t, j) => t.classList.toggle('is-open', j === i));
+        activeIdx = i;
+        openRecord(i);
+      });
+    });
+
+    // Open the first entry by default
+    openRecord(0);
+    window.addEventListener('resize', () => {
+      if (record.classList.contains('is-open')) record.style.maxHeight = recordInner.scrollHeight + 60 + 'px';
+    });
+  }
+
   // Simple lightweight carousel (Showrooms / gallery strips)
   document.querySelectorAll('[data-carousel]').forEach(car => {
     const track = car.querySelector('[data-track]');

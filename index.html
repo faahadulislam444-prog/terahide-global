@@ -335,51 +335,66 @@
       <span class="eyebrow">Trust &amp; Standards</span>
       <h2 class="font-display text-3xl lg:text-4xl mt-3">Certified at every stage</h2>
     </div>
-    <p class="text-ink-soft text-sm max-w-xs leading-relaxed">Hover a mark for what it actually covers — not just a logo, a standard we're audited against.</p>
+    <p class="text-ink-soft text-sm max-w-xs leading-relaxed">Five audits we're held to — not logos, standards we're checked against. Select a stamp for the record.</p>
   </div>
-  <div class="rule-gold mb-10 reveal"></div>
+  <div class="rule-gold mb-14 reveal"></div>
 
-  <div class="cert-grid reveal-stagger">
-    <div class="cert-card">
-      <span class="cert-check">&#10003;</span>
-      <div class="cert-mark"><span class="text-lg">LWG</span></div>
-      <p class="cert-name">Leather Working<br/>Group Gold</p>
-      <p class="cert-sub">Environmental audit</p>
-      <div class="cert-detail"><p>Highest tier LWG rating — water, energy, and chemical management independently verified per tannery.</p></div>
-    </div>
+  <div class="ledger reveal-stagger" data-ledger>
+    <div class="ledger-rail" aria-hidden="true"></div>
 
-    <div class="cert-card">
-      <span class="cert-check">&#10003;</span>
-      <div class="cert-mark"><span class="text-lg">ISO</span></div>
-      <p class="cert-name">ISO 14001<br/>Certified</p>
-      <p class="cert-sub">Environmental system</p>
-      <div class="cert-detail"><p>Formal environmental management system, reviewed annually across our partner network.</p></div>
-    </div>
+    <button class="ledger-entry is-open" data-ledger-trigger data-ledger-idx="0">
+      <span class="ledger-stamp"><span>LWG</span></span>
+      <span class="ledger-label">Leather Working<br/>Group Gold</span>
+      <svg class="ledger-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
 
-    <div class="cert-card">
-      <span class="cert-check">&#10003;</span>
-      <div class="cert-mark"><span class="text-base">OEKO</span></div>
-      <p class="cert-name">OEKO-TEX<br/>Standard 100</p>
-      <p class="cert-sub">Chemical safety</p>
-      <div class="cert-detail"><p>Tested for harmful substances at every stage — safe for direct, prolonged skin contact.</p></div>
-    </div>
+    <button class="ledger-entry" data-ledger-trigger data-ledger-idx="1">
+      <span class="ledger-stamp"><span>ISO</span></span>
+      <span class="ledger-label">ISO 14001<br/>Certified</span>
+      <svg class="ledger-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
 
-    <div class="cert-card">
-      <span class="cert-check">&#10003;</span>
-      <div class="cert-mark"><span class="text-base">REACH</span></div>
-      <p class="cert-name">EU REACH<br/>Compliant</p>
-      <p class="cert-sub">Chemical registration</p>
-      <div class="cert-detail"><p>Every dye and finishing agent registered and screened under EU chemical regulation.</p></div>
-    </div>
+    <button class="ledger-entry" data-ledger-trigger data-ledger-idx="2">
+      <span class="ledger-stamp"><span class="text-sm">OEKO</span></span>
+      <span class="ledger-label">OEKO-TEX<br/>Standard 100</span>
+      <svg class="ledger-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
 
-    <div class="cert-card">
-      <span class="cert-check">&#10003;</span>
-      <div class="cert-mark"><span class="text-base">100%</span></div>
-      <p class="cert-name">Traceable<br/>Origin</p>
-      <p class="cert-sub">Batch-level tracking</p>
-      <div class="cert-detail"><p>Every hide traces back to a named tannery and region — no blended or unverified stock.</p></div>
+    <button class="ledger-entry" data-ledger-trigger data-ledger-idx="3">
+      <span class="ledger-stamp"><span class="text-sm">REACH</span></span>
+      <span class="ledger-label">EU REACH<br/>Compliant</span>
+      <svg class="ledger-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+
+    <button class="ledger-entry" data-ledger-trigger data-ledger-idx="4">
+      <span class="ledger-stamp"><span class="text-sm">100%</span></span>
+      <span class="ledger-label">Traceable<br/>Origin</span>
+      <svg class="ledger-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+  </div>
+
+  <div class="ledger-record" data-ledger-record>
+    <div class="ledger-record-inner" data-ledger-record-inner>
+      <p class="ledger-record-covers">Highest tier LWG rating — water, energy, and chemical management independently verified per tannery.</p>
+      <div class="ledger-record-meta">
+        <div><span>Audited by</span><strong>Leather Working Group</strong></div>
+        <div><span>Last audit</span><strong>March 2026</strong></div>
+        <div><span>Next renewal</span><strong>March 2027</strong></div>
+        <div><span>Scope</span><strong>All 18 partner tanneries</strong></div>
+      </div>
     </div>
   </div>
+
+  <!-- Ledger data, read by JS -->
+  <script type="application/json" data-ledger-data>
+  [
+    {"covers":"Highest tier LWG rating — water, energy, and chemical management independently verified per tannery.","auditor":"Leather Working Group","last":"March 2026","next":"March 2027","scope":"All 18 partner tanneries"},
+    {"covers":"Formal environmental management system, reviewed annually across our partner network.","auditor":"SGS International","last":"January 2026","next":"January 2027","scope":"All 18 partner tanneries"},
+    {"covers":"Tested for harmful substances at every stage — safe for direct, prolonged skin contact.","auditor":"OEKO-TEX Association","last":"June 2025","next":"June 2027","scope":"Finished leather, per batch"},
+    {"covers":"Every dye and finishing agent registered and screened under EU chemical regulation.","auditor":"European Chemicals Agency","last":"November 2025","next":"Ongoing registration","scope":"All chemical inputs"},
+    {"covers":"Every hide traces back to a named tannery and region — no blended or unverified stock.","auditor":"Terrahide internal audit","last":"Continuous","next":"Per shipment","scope":"Every batch shipped"}
+  ]
+  </script>
 </section>
 
 <!-- ============ FEATURED COLLECTION (cursor-lens reveal) ============ -->
