@@ -11,6 +11,37 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => loader.classList.add('loaded'), 1200);
   }
 
+  // Live rotating ticker (announcement bar)
+  const tickerEl = document.querySelector('[data-ticker]');
+  if (tickerEl) {
+    const textEl = tickerEl.querySelector('[data-ticker-text]');
+    const tannery = (city, tz) => {
+      const time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: tz }).format(new Date());
+      return `${city} tannery floor &middot; ${time} local`;
+    };
+    const dayIndex = Math.floor(Date.now() / 86400000);
+    const hidesToday = 180 + (dayIndex % 47) + new Date().getHours() * 2;
+    const shipments = 3 + (dayIndex % 6);
+    const messages = [
+      'Est. 1998 &middot; Sourcing Across 4 Continents',
+      () => tannery('S&atilde;o Paulo', 'America/Sao_Paulo'),
+      () => `${shipments} shipments in transit right now`,
+      () => tannery('Florence', 'Europe/Rome'),
+      () => `${hidesToday} hides graded today`,
+      () => tannery('Chennai', 'Asia/Kolkata'),
+    ];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % messages.length;
+      textEl.classList.add('ticker-out');
+      setTimeout(() => {
+        const m = messages[i];
+        textEl.innerHTML = typeof m === 'function' ? m() : m;
+        textEl.classList.remove('ticker-out');
+      }, 320);
+    }, 4200);
+  }
+
   // Scroll progress bar
   const bar = document.getElementById('scroll-progress');
   const nav = document.getElementById('site-nav');

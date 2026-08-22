@@ -595,6 +595,37 @@ body{
 }
 .region-option:hover{ background: var(--th-cream); }
 
+/* Live rotating ticker (replaces static announcement line) */
+.locale-ticker{ position: relative; overflow: hidden; height: 16px; }
+.ticker-dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 0 0 rgba(74,222,128,.6);
+  animation: ticker-pulse 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes ticker-pulse{
+  0%{ box-shadow: 0 0 0 0 rgba(74,222,128,.55); }
+  70%{ box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+}
+.locale-ticker [data-ticker-text]{
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker-fade-in .5s ease;
+}
+@keyframes ticker-fade-in{
+  from{ opacity: 0; transform: translateY(6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+.locale-ticker [data-ticker-text].ticker-out{
+  animation: ticker-fade-out .35s ease forwards;
+}
+@keyframes ticker-fade-out{
+  from{ opacity: 1; transform: translateY(0); }
+  to{ opacity: 0; transform: translateY(-6px); }
+}
+
 /* Editorial primary header: centered logo, split nav */
 .editorial-header{
   transition: padding .5s cubic-bezier(.22,.68,0,1), background .4s ease, box-shadow .4s ease;
