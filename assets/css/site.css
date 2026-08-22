@@ -2189,3 +2189,82 @@ body{
   transition: opacity .35s ease, transform .4s cubic-bezier(.22,.68,0,1);
 }
 .cert-card:hover .cert-check{ opacity: 1; transform: scale(1); }
+
+/* ===================== Draggable filmstrip (workshop floor gallery) ===================== */
+.filmstrip-stage{
+  position: relative;
+  padding: 34px 0 46px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.filmstrip-track{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 calc(50vw - 140px);
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filmstrip-track::-webkit-scrollbar{ display: none; }
+.filmstrip-track.dragging{ cursor: grabbing; }
+.filmstrip-frame{
+  position: relative;
+  flex-shrink: 0;
+  width: 220px; height: 300px;
+  border-radius: 6px;
+  background: var(--th-ink);
+  padding: 10px 10px 34px;
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.35);
+  transform: scale(.82);
+  opacity: .55;
+  filter: grayscale(.35);
+  transition: transform .45s cubic-bezier(.22,.68,0,1), opacity .45s ease, filter .45s ease;
+}
+.filmstrip-frame::before, .filmstrip-frame::after{
+  content: '';
+  position: absolute; left: 0; right: 0;
+  height: 10px;
+  background-image: radial-gradient(circle, var(--th-bg) 2.5px, transparent 2.6px);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+  background-position: 6px center;
+}
+.filmstrip-frame::before{ top: 0; }
+.filmstrip-frame::after{ bottom: 24px; }
+.filmstrip-frame img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.filmstrip-frame figcaption{
+  position: absolute; left: 10px; right: 10px; bottom: 8px;
+  font-size: 11px; color: rgba(247,244,239,.55);
+  letter-spacing: .02em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+.filmstrip-frame .frame-idx{
+  color: var(--th-hide-light);
+  font-family: 'Fraunces', serif;
+  margin-right: 8px;
+}
+.filmstrip-frame.is-center{
+  transform: scale(1);
+  opacity: 1;
+  filter: grayscale(0);
+  z-index: 2;
+}
+.filmstrip-frame.is-center figcaption{ opacity: 1; }
+.filmstrip-hint{
+  position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .14em;
+  color: var(--th-ink-soft);
+  opacity: .7;
+  pointer-events: none;
+}

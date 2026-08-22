@@ -1233,25 +1233,44 @@
 </section>
 
 <!-- ============ GALLERY CAROUSEL ============ -->
-<section class="py-20 bg-cream">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-8 flex items-center justify-between reveal">
-    <h2 class="font-display text-3xl">From the workshop floor</h2>
+<section class="py-20 bg-cream overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-4 reveal">
+    <span class="eyebrow">Contact Sheet</span>
+    <h2 class="font-display text-3xl mt-3">From the workshop floor</h2>
+    <p class="text-ink-soft text-sm mt-2">Drag the strip. The frame at center holds focus — just like reviewing a roll on the light table.</p>
   </div>
-  <div class="relative" data-carousel>
-    <div data-track class="flex gap-4 overflow-x-auto px-6 lg:px-10 pb-4 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden">
-      <img src="https://images.unsplash.com/photo-1716295177956-420a647c83ac?q=80&w=500&auto=format&fit=crop" class="swatch snap-start w-64 h-80 object-cover rounded-xl flex-shrink-0" alt="Close-up of brown leather grain texture" />
-      <img src="https://images.unsplash.com/photo-1614330316567-11d8e572db16?q=80&w=500&auto=format&fit=crop" class="swatch snap-start w-64 h-80 object-cover rounded-xl flex-shrink-0" alt="Hand holding a brown leather card wallet" />
-      <img src="https://images.unsplash.com/photo-1755543041980-276589f8323c?q=80&w=500&auto=format&fit=crop" class="swatch snap-start w-64 h-80 object-cover rounded-xl flex-shrink-0" alt="Close-up texture of brown leather material" />
-      <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=500&auto=format&fit=crop" class="swatch snap-start w-64 h-80 object-cover rounded-xl flex-shrink-0" alt="Pair of brown leather loafers" />
-      <img src="https://images.unsplash.com/photo-1525103504173-8dc1582c7430?q=80&w=500&auto=format&fit=crop" class="swatch snap-start w-64 h-80 object-cover rounded-xl flex-shrink-0" alt="Brown leather duffel bag" />
-      <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=500&auto=format&fit=crop" class="swatch snap-start w-64 h-80 object-cover rounded-xl flex-shrink-0" alt="Brown leather lace-up shoes" />
+
+  <div class="filmstrip-stage reveal-scale" data-filmstrip>
+    <div class="filmstrip-track" data-filmstrip-track>
+      <figure class="filmstrip-frame" data-frame>
+        <img src="https://images.unsplash.com/photo-1716295177956-420a647c83ac?q=80&w=700&auto=format&fit=crop" alt="Close-up of brown leather grain texture" draggable="false" />
+        <figcaption><span class="frame-idx">01</span>Grain inspection under raking light</figcaption>
+      </figure>
+      <figure class="filmstrip-frame" data-frame>
+        <img src="https://images.unsplash.com/photo-1614330316567-11d8e572db16?q=80&w=700&auto=format&fit=crop" alt="Hand holding a brown leather card wallet" draggable="false" />
+        <figcaption><span class="frame-idx">02</span>First stitch check, card wallet run</figcaption>
+      </figure>
+      <figure class="filmstrip-frame" data-frame>
+        <img src="https://images.unsplash.com/photo-1755543041980-276589f8323c?q=80&w=700&auto=format&fit=crop" alt="Close-up texture of brown leather material" draggable="false" />
+        <figcaption><span class="frame-idx">03</span>Full-grain surface, pre-cut</figcaption>
+      </figure>
+      <figure class="filmstrip-frame" data-frame>
+        <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=700&auto=format&fit=crop" alt="Pair of brown leather loafers" draggable="false" />
+        <figcaption><span class="frame-idx">04</span>Finished pair, quality bench</figcaption>
+      </figure>
+      <figure class="filmstrip-frame" data-frame>
+        <img src="https://images.unsplash.com/photo-1525103504173-8dc1582c7430?q=80&w=700&auto=format&fit=crop" alt="Brown leather duffel bag" draggable="false" />
+        <figcaption><span class="frame-idx">05</span>Duffel, edge-paint drying</figcaption>
+      </figure>
+      <figure class="filmstrip-frame" data-frame>
+        <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=700&auto=format&fit=crop" alt="Brown leather lace-up shoes" draggable="false" />
+        <figcaption><span class="frame-idx">06</span>Lace-ups, final polish pass</figcaption>
+      </figure>
     </div>
-    <button data-prev class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-lg items-center justify-center hover:bg-hide hover:text-white transition-colors">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-    </button>
-    <button data-next class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white shadow-lg items-center justify-center hover:bg-hide hover:text-white transition-colors">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-    </button>
+    <div class="filmstrip-hint">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
+      Drag to browse
+    </div>
   </div>
 </section>
 
