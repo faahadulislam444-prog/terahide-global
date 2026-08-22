@@ -11,35 +11,87 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => loader.classList.add('loaded'), 1200);
   }
 
-  // Live rotating ticker (announcement bar)
-  const tickerEl = document.querySelector('[data-ticker]');
-  if (tickerEl) {
-    const textEl = tickerEl.querySelector('[data-ticker-text]');
-    const tannery = (city, tz) => {
-      const time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: tz }).format(new Date());
-      return `${city} tannery floor &middot; ${time} local`;
-    };
-    const dayIndex = Math.floor(Date.now() / 86400000);
-    const hidesToday = 180 + (dayIndex % 47) + new Date().getHours() * 2;
-    const shipments = 3 + (dayIndex % 6);
-    const messages = [
-      'Est. 1998 &middot; Sourcing Across 4 Continents',
-      () => tannery('S&atilde;o Paulo', 'America/Sao_Paulo'),
-      () => `${shipments} shipments in transit right now`,
-      () => tannery('Florence', 'Europe/Rome'),
-      () => `${hidesToday} hides graded today`,
-      () => tannery('Chennai', 'Asia/Kolkata'),
+  // Live hide-batch traceability ticker + modal
+  const batchTrigger = document.querySelector('[data-batch-trigger]');
+  if (batchTrigger) {
+    const batchTextEl = batchTrigger.querySelector('[data-batch-text]');
+
+    const batches = [
+      {
+        id: 'TH-2847', status: 'in transit', originFarm: 'Rio Grande do Sul, Brazil', tannery: 'Curtume Rosso, Brazil',
+        tanneryDate: '12 Aug', qc: 'Chrome-free, passed', destination: 'Melbourne, Australia', step: 3
+      },
+      {
+        id: 'TH-2851', status: 'at tannery', originFarm: 'Veneto, Italy', tannery: 'Conceria Fiorentina, Italy',
+        tanneryDate: '18 Aug', qc: 'Pending', destination: 'Auckland, New Zealand', step: 1
+      },
+      {
+        id: 'TH-2839', status: 'cleared customs', originFarm: 'Tamil Nadu, India', tannery: 'Chennai Leather Works, India',
+        tanneryDate: '05 Aug', qc: 'Full-grain verified', destination: 'Sydney, Australia', step: 4
+      },
+      {
+        id: 'TH-2856', status: 'in transit', originFarm: 'Rio Grande do Sul, Brazil', tannery: 'Curtume Rosso, Brazil',
+        tanneryDate: '19 Aug', qc: 'Chrome-free, passed', destination: 'Auckland, New Zealand', step: 3
+      },
     ];
+    let activeBatch = batches[0];
     let i = 0;
-    setInterval(() => {
-      i = (i + 1) % messages.length;
-      textEl.classList.add('ticker-out');
+
+    const rotate = () => {
+      i = (i + 1) % batches.length;
+      activeBatch = batches[i];
+      batchTextEl.classList.add('ticker-out');
       setTimeout(() => {
-        const m = messages[i];
-        textEl.innerHTML = typeof m === 'function' ? m() : m;
-        textEl.classList.remove('ticker-out');
+        batchTextEl.textContent = `Batch #${activeBatch.id} · ${activeBatch.status}`;
+        batchTextEl.classList.remove('ticker-out');
       }, 320);
-    }, 4200);
+    };
+    setInterval(rotate, 4200);
+
+    // Build modal once, reused for whichever batch is active on click
+    const backdrop = document.createElement('div');
+    backdrop.className = 'batch-modal-backdrop';
+    backdrop.setAttribute('role', 'dialog');
+    backdrop.setAttribute('aria-modal', 'true');
+    backdrop.innerHTML = `
+      <div class="batch-modal" style="position:relative;">
+        <button class="batch-modal-close" data-batch-close aria-label="Close">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <span class="eyebrow" data-batch-modal-id>Batch #TH-2847</span>
+        <h3 class="font-display text-2xl mt-3 mb-6">Hide traceability</h3>
+        <div data-batch-steps></div>
+      </div>`;
+    document.body.appendChild(backdrop);
+    const stepsEl = backdrop.querySelector('[data-batch-steps]');
+    const idEl = backdrop.querySelector('[data-batch-modal-id]');
+
+    const renderModal = (b) => {
+      idEl.textContent = `Batch #${b.id}`;
+      const steps = [
+        { label: 'Farm origin', detail: b.originFarm },
+        { label: 'Tannery received', detail: `${b.tannery} · ${b.tanneryDate}` },
+        { label: 'Quality control', detail: b.qc },
+        { label: 'In transit', detail: `Destination: ${b.destination}` },
+        { label: 'Delivered', detail: b.destination },
+      ];
+      stepsEl.innerHTML = steps.map((s, idx) => {
+        const state = idx < b.step ? 'done' : idx === b.step ? 'current' : 'pending';
+        return `<div class="batch-trace-step ${state}">
+          <span class="batch-trace-dot"></span>
+          <p class="text-sm font-semibold text-ink">${s.label}</p>
+          <p class="text-xs text-ink-soft mt-0.5">${s.detail}</p>
+        </div>`;
+      }).join('');
+    };
+
+    const openModal = () => { renderModal(activeBatch); backdrop.classList.add('open'); };
+    const closeModal = () => backdrop.classList.remove('open');
+
+    batchTrigger.addEventListener('click', openModal);
+    backdrop.querySelector('[data-batch-close]').addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   }
 
   // Scroll progress bar
