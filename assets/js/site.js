@@ -1037,4 +1037,47 @@ document.addEventListener('DOMContentLoaded', () => {
     restart();
   });
 
+  // ============ Catalog: 3D flipbook ============
+  document.querySelectorAll('[data-flipbook]').forEach(wrap => {
+    const book = wrap.querySelector('[data-flipbook-inner]');
+    const sheets = Array.from(book.querySelectorAll('.fb-sheet'));
+    const prevBtn = wrap.querySelector('[data-fb-prev]');
+    const nextBtn = wrap.querySelector('[data-fb-next]');
+    const currentEl = wrap.querySelector('[data-fb-current]');
+    const totalEl = wrap.querySelector('[data-fb-total]');
+    if (!sheets.length) return;
+
+    const totalPages = sheets.length + 1; // n sheets = n+1 page-states (0 flipped .. n flipped)
+    let flipped = 0; // how many sheets are currently flipped
+
+    const render = () => {
+      sheets.forEach((s, i) => s.classList.toggle('flipped', i < flipped));
+      if (currentEl) currentEl.textContent = flipped + 1;
+      if (totalEl) totalEl.textContent = totalPages;
+      if (prevBtn) prevBtn.disabled = flipped === 0;
+      if (nextBtn) nextBtn.disabled = flipped === sheets.length;
+    };
+
+    const next = () => { if (flipped < sheets.length) { flipped++; render(); } };
+    const prev = () => { if (flipped > 0) { flipped--; render(); } };
+
+    sheets.forEach((sheet, i) => {
+      sheet.addEventListener('click', () => {
+        if (i === flipped) next();
+        else if (i === flipped - 1) prev();
+      });
+    });
+
+    nextBtn && nextBtn.addEventListener('click', next);
+    prevBtn && prevBtn.addEventListener('click', prev);
+
+    document.addEventListener('keydown', (e) => {
+      if (!wrap.getBoundingClientRect() || wrap.getBoundingClientRect().top > window.innerHeight || wrap.getBoundingClientRect().bottom < 0) return;
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    render();
+  });
+
 });
