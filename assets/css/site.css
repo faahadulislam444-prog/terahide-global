@@ -2756,6 +2756,73 @@ body{
   color: var(--th-ink-soft);
 }
 
+/* ---- Single-colour spec page (world-standard colour-card layout) ---- */
+.fb-color-page{
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: row;
+}
+.fb-color-page-swatch{
+  position: relative;
+  width: 46%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.fb-color-page-swatch::after{
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1716295177956-420a647c83ac?q=70&w=500&auto=format&fit=crop&sat=-100');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  opacity: .55;
+}
+.fb-color-page-detail{
+  flex: 1;
+  padding: 30px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.fb-color-page-family{
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--th-hide-light);
+  font-weight: 700;
+}
+.fb-color-page-name{
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  margin-top: 6px;
+  color: var(--th-ink);
+}
+.fb-color-page-code{
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: var(--th-ink-soft);
+  margin-top: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.fb-color-page-specs{
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--th-line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fb-color-page-specs div{ display: flex; justify-content: space-between; gap: 10px; font-size: 11.5px; }
+.fb-color-page-specs span:first-child{ color: var(--th-ink-soft); }
+.fb-color-page-specs span:last-child{ font-weight: 600; color: var(--th-hide-dark); text-align: right; }
+.fb-color-page-index{
+  position: absolute;
+  top: 14px; right: 18px;
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--th-ink-soft);
+  opacity: .45;
+}
+
 /* ---- Thickness/weight bar chart ---- */
 .fb-bar-chart{
   display: flex;
